@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+* {
+  -webkit-tap-highlight-color: transparent; /* Disable tap highlight gray box in iOS Safari */
+}
+
+html, body {
+  width: 100%;
+  overflow-x: hidden; /* Lock horizontal scrolling to prevent off-screen drawer menu leak */
+}
+
+body {
+  background-color: #051424;
+  color: #d4e4fa;
+  scroll-behavior: smooth;
+  /* iOS Safe Area Padding Support */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+p, a, span, button, label {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Base Glass Card with iOS Safari Backdrop-Filter Support */
+.glass-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); /* Fix glassmorphism on iOS Safari */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(123, 208, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(123, 208, 255, 0.15);
+  background: rgba(30, 41, 59, 0.6);
+  transform: translateY(-6px);
+}
+
+/* Scrollable Container Inertia for iOS Safari */
+.scroll-touch-inertia {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Background Cyber Grid */
+.bg-grid-pattern {
+  background-size: 20px 20px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Text Gradient Effect */
+.text-gradient {
+  background: linear-gradient(135deg, #bec6e0 0%, #7bd0ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bg-glow {
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+/* --- KEYFRAME ANIMATIONS --- */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px -3px rgba(123, 208, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px 3px rgba(123, 208, 255, 0.6);
+  }
+}
+
+/* --- ANIMATION CLASS UTILITIES --- */
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s infinite ease-in-out;
+}
+
+/* Animation Delays */
+.animation-delay-100 { animation-delay: 100ms; }
+.animation-delay-200 { animation-delay: 200ms; }
+.animation-delay-300 { animation-delay: 300ms; }
+.animation-delay-400 { animation-delay: 400ms; }
+.animation-delay-500 { animation-delay: 500ms; }
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Custom Select Dropdown & Input Styling Overrides */
+input[type="text"], 
+input[type="email"], 
+textarea {
+  background-color: rgba(1, 15, 31, 0.8) !important;
+  color: #d4e4fa !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 0.75rem !important;
+  padding: 1rem !important;
+  transition: all 0.3s ease-in-out !important;
+  width: 100% !important;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+textarea:focus {
+  border-color: #7bd0ff !important;
+  box-shadow: 0 0 15px rgba(123, 208, 255, 0.25) !important;
+  outline: none !important;
+  background-color: rgba(1, 15, 31, 0.95) !important;
+}
+
+input::placeholder, 
+textarea::placeholder {
+  color: rgba(144, 144, 151, 0.5) !important;
+}
