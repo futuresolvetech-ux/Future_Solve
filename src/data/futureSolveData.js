@@ -119,7 +119,7 @@ export const servicesData = [
     id: "mobile",
     title: "Mobile App Scaling",
     description: "Sleek, cross-platform and native mobile applications that extend your small business reach. Deployed on iOS and Android with offline-first features for seamless customer interaction.",
-    technologies: ["React Native", "Swift", "Kotlin", "Firebase", "Redux", "APIs Integration"],
+    technologies: ["React Native", "Flutter", "Kotlin", "Firebase", "Redux", "APIs Integration"],
     icon: "devices",
     color: "cyan"
   },
