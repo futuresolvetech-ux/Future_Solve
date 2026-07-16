@@ -2,6 +2,26 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { projectsData } from '../data/futureSolveData';
 
+// Import generated project mockups from assets
+import rankcodaImg from '../assets/rankcoda_mockup.png';
+import maieEmrImg from '../assets/maie_emr_mockup.png';
+import jobsolvImg from '../assets/jobsolv_mockup.png';
+import putitforsaleImg from '../assets/putitforsale_mockup.png';
+import darbiImg from '../assets/darbi_mockup.png';
+import rahaldriveImg from '../assets/rahaldrive_mockup.png';
+import sidekickImg from '../assets/sidekick_mockup.png';
+
+// Map project ID to imported asset
+const projectImages = {
+  1: rankcodaImg,
+  2: maieEmrImg,
+  3: jobsolvImg,
+  4: putitforsaleImg,
+  5: darbiImg,
+  6: rahaldriveImg,
+  7: sidekickImg
+};
+
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [selectedProject, setSelectedProject] = useState(null);
@@ -118,9 +138,9 @@ export default function Portfolio() {
             <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden glass-card border border-white/5 relative">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10"></div>
               <img 
-                className="w-full h-full object-cover opacity-60" 
+                className="w-full h-full object-cover opacity-80" 
                 alt="Workspace and tech metrics" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvr31DvJVyNhGsiLgrcQRc2tzWYl7FkoOA5kvsRHr6kLH7mkS1Nr6ACTW3E70-gNFeHBJvhfvJ4hdHl5SIGxunf4MXdDolEJynT7-AhF0WNjAYrVMlxS3DtJCw7LZLIy3TjlKPmpxjQSROqII8REucS3Vdiyy1L377n9Sl8V7X1I0R72ix3zomhN5vK4OsrIZFlZHKqiMKEelmBFi8-aYeGvKVqWWZewvbk2kEn3ADgUiCxO9BgU0vxA"
+                src={projectImages[featuredStory.id]}
               />
               <div className="absolute bottom-6 left-6 right-6 z-20 text-left">
                 <p className="text-xs font-bold text-cyan-400 tracking-widest uppercase font-mono mb-1">Impact Result</p>
@@ -198,61 +218,75 @@ export default function Portfolio() {
                 className="glass-card border border-slate-800/80 bg-slate-900/10 hover:border-slate-700/60 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between h-full shadow-2xl group overflow-hidden animate-fade-in-up"
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
-                {/* Metric Header Panel */}
-                <div className="relative overflow-hidden py-8 px-6 bg-gradient-to-br from-indigo-950 via-slate-950 to-cyan-950 bg-grid-pattern border-b border-slate-800/60 flex flex-col items-start justify-center">
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                {/* Metric Header Panel with Project Mockup Image */}
+                <div className="relative overflow-hidden h-48 bg-slate-950 border-b border-slate-800/60 flex flex-col items-start justify-end p-6 group/header">
+                  {/* Background Image */}
+                  <img 
+                    src={projectImages[p.id]} 
+                    alt={p.title}
+                    className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-500 ease-out"
+                  />
+                  {/* Grid Overlay */}
+                  <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"></div>
+                  {/* Dark Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10"></div>
                   
-                  {/* Glowing Metric Tag */}
-                  <span className="text-cyan-400 text-2xl font-extrabold font-mono z-10 tracking-tight flex items-center gap-1.5 mb-2 group-hover:scale-105 transition-transform duration-300">
-                    <span className="material-symbols-outlined text-xl">trending_up</span>
-                    <span>{p.metric}</span>
-                  </span>
-                  
-                  <span className="text-xs font-bold text-slate-400 tracking-wider font-mono z-10 uppercase">{p.title}</span>
+                  {/* Glowing Metric Tag overlay */}
+                  <div className="relative z-20 flex flex-col items-start">
+                    <span className="bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 px-2.5 py-1 rounded-lg text-xs font-extrabold font-mono flex items-center gap-1.5 mb-2 shadow-lg backdrop-blur-md">
+                      <span className="material-symbols-outlined text-[10px]">trending_up</span>
+                      <span>{p.metric}</span>
+                    </span>
+                    <span className="text-[10px] font-bold text-slate-400 tracking-wider font-mono uppercase">{p.title}</span>
+                  </div>
                 </div>
                 
                 {/* Card Body */}
-                <div className="p-6 flex flex-col flex-grow text-left">
-                  {/* Category Pill Tag */}
-                  <div className="mb-4">
-                    <span className="inline-block bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 px-2.5 py-1 rounded-full text-xs font-semibold">{p.category}</span>
-                  </div>
-                  
-                  {/* Headline */}
-                  <h3 className="text-lg font-bold text-white mb-4 tracking-wide group-hover:text-cyan-300 transition-colors leading-snug">
-                    {p.headline}
-                  </h3>
-                  
-                  {/* Summary paragraph */}
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3 font-sans">
-                    {p.description}
-                  </p>
-                  
-                  {/* Technologies */}
-                  <div className="flex flex-wrap gap-1.5 mb-6 mt-auto pt-4 border-t border-slate-800/60">
-                    {p.technologies.slice(0, 3).map(tech => (
-                      <span key={tech} className="bg-slate-950/80 border border-slate-850/80 text-slate-400 px-2.5 py-1 rounded-lg text-[10px] font-medium font-mono">{tech}</span>
-                    ))}
-                    {p.technologies.length > 3 && (
-                      <span className="bg-slate-950/80 border border-slate-850/80 text-slate-400 px-2.5 py-1 rounded-lg text-[10px] font-medium font-mono">+{p.technologies.length - 3}</span>
-                    )}
-                  </div>
-                  
-                  {/* Action link */}
-                  <div className="flex items-center justify-between">
-                    <button 
-                      onClick={() => openModal(p)}
-                      className="text-cyan-400 hover:text-cyan-300 font-bold text-sm tracking-wide transition-colors flex items-center gap-1"
-                    >
-                      <span>Read Story</span>
-                      <span className="material-symbols-outlined text-sm font-bold">arrow_forward</span>
-                    </button>
+                <div className="p-6 flex flex-col flex-grow text-left justify-between">
+                  <div>
+                    {/* Category Pill Tag */}
+                    <div className="mb-4">
+                      <span className="inline-block bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 px-2.5 py-1 rounded-full text-[10px] font-semibold">{p.category}</span>
+                    </div>
                     
-                    {p.link !== '#' && (
-                      <a href={p.link} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Visit Website">
-                        <span className="material-symbols-outlined text-lg">launch</span>
-                      </a>
-                    )}
+                    {/* Headline */}
+                    <h3 className="text-base font-bold text-white mb-3 tracking-wide group-hover:text-cyan-300 transition-colors leading-snug">
+                      {p.headline}
+                    </h3>
+                    
+                    {/* Summary paragraph */}
+                    <p className="text-slate-400 text-xs leading-relaxed mb-6 line-clamp-3 font-sans">
+                      {p.description}
+                    </p>
+                  </div>
+                  
+                  <div>
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-1.5 mb-6 pt-4 border-t border-slate-800/60">
+                      {p.technologies.slice(0, 3).map(tech => (
+                        <span key={tech} className="bg-slate-950/80 border border-slate-850/80 text-slate-400 px-2.5 py-1 rounded-lg text-[10px] font-medium font-mono">{tech}</span>
+                      ))}
+                      {p.technologies.length > 3 && (
+                        <span className="bg-slate-950/80 border border-slate-850/80 text-slate-400 px-2.5 py-1 rounded-lg text-[10px] font-medium font-mono">+{p.technologies.length - 3}</span>
+                      )}
+                    </div>
+                    
+                    {/* Action link */}
+                    <div className="flex items-center justify-between">
+                      <button 
+                        onClick={() => openModal(p)}
+                        className="text-cyan-400 hover:text-cyan-300 font-bold text-xs tracking-wide transition-colors flex items-center gap-1"
+                      >
+                        <span>Read Case Study</span>
+                        <span className="material-symbols-outlined text-xs font-bold">arrow_forward</span>
+                      </button>
+                      
+                      {p.link !== '#' && (
+                        <a href={p.link} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Visit Website">
+                          <span className="material-symbols-outlined text-lg">launch</span>
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -287,12 +321,20 @@ export default function Portfolio() {
               <span className="material-symbols-outlined font-light">close</span>
             </button>
             
-            {/* Modal Header */}
-            <div className="bg-gradient-to-br from-indigo-950 via-slate-950 to-cyan-950 bg-grid-pattern p-8 md:p-10 border-b border-slate-800/60 text-left relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
-              <div className="relative z-10 pr-10">
+            {/* Modal Header with Project Mockup Image */}
+            <div className="relative overflow-hidden p-8 md:p-10 border-b border-slate-800/60 text-left min-h-[240px] flex items-end">
+              {/* Background Image */}
+              <img 
+                src={projectImages[selectedProject.id]} 
+                alt={selectedProject.title}
+                className="absolute inset-0 w-full h-full object-cover opacity-25"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent z-10"></div>
+              <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
+              
+              <div className="relative z-20">
                 {/* Metric Badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 mb-4 text-cyan-400 text-sm font-bold font-mono">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 mb-4 text-cyan-400 text-sm font-bold font-mono backdrop-blur-md">
                   <span className="material-symbols-outlined text-[16px]">trending_up</span>
                   <span>{selectedProject.metric}</span>
                 </div>
