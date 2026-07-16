@@ -175,10 +175,12 @@ export default function Home() {
         <div className="bg-gradient-to-br from-indigo-950 via-slate-950 to-cyan-950 rounded-[2.5rem] p-8 md:p-16 text-center relative overflow-hidden border border-slate-800 shadow-2xl animate-fade-in">
           <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
           <div className="relative z-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-white">Ready to Solve Your Tomorrow?</h2>
-            <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10">Ready to scale your next product? Send us an inquiry and our system architects will get back to you within 24 hours.</p>
-            <Link to="/contact" className="inline-block bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white px-10 py-5 rounded-full font-bold text-base shadow-xl hover:scale-105 transition-all text-center animate-pulse-glow">
-              Schedule a Strategy Session
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight">Ready to build the future of your product?</h2>
+            <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-sans">
+              Whether you need to scale a high-performance web platform, launch a native mobile app, or automate your workflows with custom AI systems, our engineers are ready to build your solution.
+            </p>
+            <Link to="/contact" className="inline-block bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white px-10 py-5 rounded-xl font-bold text-base shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all text-center animate-pulse-glow">
+              Book a Free Strategy Consultation
             </Link>
           </div>
         </div>
