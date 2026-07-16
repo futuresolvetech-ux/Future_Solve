@@ -172,7 +172,7 @@ export const statsData = {
   yearsActive: "5+",
   projectsDelivered: "50+",
   clientSatisfaction: "100%",
-  email: "mohamedsa3d219@gmail.com",
+  email: "contact@futuresolve.com",
   phone: "+20 128 415 2740",
   location: "Egypt"
 };
