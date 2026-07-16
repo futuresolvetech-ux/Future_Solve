@@ -76,7 +76,7 @@ export default function Header() {
           
           {/* Header CTA & Mobile Hamburger */}
           <div className="flex items-center gap-4">
-            <Link to="/contact" className="hidden sm:inline-block bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 text-center">
+            <Link to="/contact" className="hidden sm:inline-flex btn-cyber-glow text-[#d4e4fa] hover:text-white px-5 py-2.5 text-sm font-bold">
               Get Started
             </Link>
             <button onClick={toggleMobileMenu} className="md:hidden text-white hover:text-cyan-400 transition-colors focus:outline-none flex items-center justify-center p-2 rounded-xl border border-white/5 bg-white/5" aria-label="Toggle Menu">
@@ -102,13 +102,13 @@ export default function Header() {
             </button>
           </div>
           <nav className="flex flex-col gap-6 text-xl">
-            <NavLink to="/" onClick={closeMobileMenu} className={({ isActive }) => isActive ? "text-cyan-400 font-bold" : "text-slate-350 font-medium hover:text-cyan-400"}>Home</NavLink>
+            <NavLink to="/" onClick={closeMobileMenu} className={({ isActive }) => isActive ? "text-cyan-400 font-bold" : "text-slate-355 font-medium hover:text-cyan-400"}>Home</NavLink>
             <NavLink to="/services" onClick={closeMobileMenu} className={({ isActive }) => isActive ? "text-cyan-400 font-bold" : "text-slate-355 font-medium hover:text-cyan-400"}>Services</NavLink>
             <NavLink to="/portfolio" onClick={closeMobileMenu} className={({ isActive }) => isActive ? "text-cyan-400 font-bold" : "text-slate-355 font-medium hover:text-cyan-400"}>Portfolio</NavLink>
             <NavLink to="/contact" onClick={closeMobileMenu} className={({ isActive }) => isActive ? "text-cyan-400 font-bold" : "text-slate-355 font-medium hover:text-cyan-400"}>Contact</NavLink>
           </nav>
           <div className="mt-auto pt-12">
-            <Link to="/contact" onClick={closeMobileMenu} className="block w-full text-center bg-gradient-to-r from-indigo-500 to-cyan-500 text-white py-4 rounded-xl font-bold transition-all">
+            <Link to="/contact" onClick={closeMobileMenu} className="block w-full text-center btn-cyber-glow text-white py-4 font-bold">
               Get Started
             </Link>
           </div>

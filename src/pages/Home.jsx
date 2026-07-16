@@ -82,10 +82,10 @@ export default function Home() {
               A premier software development agency specializing in scaling high-performance web systems, robust native mobile apps, and cutting-edge AI integrations.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-fade-in-up animation-delay-300">
-              <Link to="/services" className="bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:scale-[1.02] transition-all duration-300 text-center text-sm tracking-wide animate-pulse-glow">
+              <Link to="/services" className="btn-cyber-glow text-white font-bold px-8 py-4 text-sm tracking-wide">
                 Explore Services
               </Link>
-              <Link to="/portfolio" className="bg-slate-900/60 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-slate-350 hover:text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] text-center text-sm tracking-wide">
+              <Link to="/portfolio" className="bg-slate-900/60 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-slate-355 hover:text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] text-center text-sm tracking-wide">
                 Explore Case Studies
               </Link>
             </div>
@@ -258,7 +258,7 @@ export default function Home() {
             <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-sans">
               Whether you need to scale a high-performance web platform, launch a native mobile app, or automate your workflows with custom AI systems, our engineers are ready to build your solution.
             </p>
-            <Link to="/contact" className="inline-block bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white px-10 py-5 rounded-xl font-bold text-base shadow-xl hover:scale-[1.03] active:scale-[0.98] transition-all text-center animate-pulse-glow">
+            <Link to="/contact" className="inline-flex btn-cyber-glow text-white px-10 py-5 text-base font-bold text-center">
               Book a Free Strategy Consultation
             </Link>
           </div>

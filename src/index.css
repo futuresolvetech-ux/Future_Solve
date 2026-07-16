@@ -45,6 +45,78 @@ p, a, span, button, label {
   transform: translateY(-6px);
 }
 
+/* Premium Cyber Button with Rotating Glowing Border */
+.btn-cyber-glow {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 0.75rem; /* rounded-xl */
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.05); /* subtle static border */
+  text-decoration: none;
+}
+
+/* The rotating conic gradient glow line */
+.btn-cyber-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 180%;
+  height: 280%;
+  background: conic-gradient(from 0deg, transparent 40%, #22d3ee 85%, #6366f1 100%);
+  transform: translate(-50%, -50%) rotate(0deg);
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* The inner mask background - matches body dark theme */
+.btn-cyber-glow::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px; /* Creates a 1.5px glowing border width */
+  background: #051424; 
+  border-radius: calc(0.75rem - 1.5px);
+  z-index: -1;
+  transition: background 0.3s ease;
+  pointer-events: none;
+}
+
+/* Hover / Active states */
+.btn-cyber-glow:hover {
+  border-color: transparent;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.25);
+  transform: translateY(-1.5px);
+}
+
+.btn-cyber-glow:hover::before {
+  opacity: 1;
+  animation: spinGlow 1.8s linear infinite;
+}
+
+.btn-cyber-glow:hover::after {
+  background: #0a1b2d; /* slightly lighter on hover */
+}
+
+.btn-cyber-glow:active {
+  transform: translateY(0.5px);
+}
+
+@keyframes spinGlow {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
 /* Scrollable Container Inertia for iOS Safari */
 .scroll-touch-inertia {
   -webkit-overflow-scrolling: touch;

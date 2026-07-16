@@ -126,7 +126,7 @@ export default function Portfolio() {
             {/* Action button */}
             <button 
               onClick={() => openModal(featuredStory)}
-              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white px-8 py-3.5 rounded-xl font-bold text-sm tracking-wide transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-indigo-500/15"
+              className="inline-flex items-center justify-center gap-2 btn-cyber-glow text-white px-8 py-3.5 text-sm font-bold tracking-wide"
             >
               <span>Read Case Study</span>
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -304,7 +304,7 @@ export default function Portfolio() {
             <p className="text-slate-400 mb-12 max-w-2xl mx-auto text-base sm:text-lg animate-fade-in-up animation-delay-100">
               Partner with Future Solve to architect the software platforms and AI systems that will define your tomorrow.
             </p>
-            <Link className="bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white px-10 py-5 rounded-xl font-bold inline-flex items-center gap-3 text-lg transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-indigo-500/20 animate-pulse-glow" to="/contact">
+            <Link className="inline-flex items-center gap-3 btn-cyber-glow text-white px-10 py-5 text-lg font-bold" to="/contact">
               Consult with an Expert
               <span className="material-symbols-outlined text-sm">launch</span>
             </Link>
@@ -390,7 +390,7 @@ export default function Portfolio() {
               {/* Action buttons */}
               <div className="flex gap-4 pt-4 border-t border-slate-800/60">
                 {selectedProject.link !== '#' && (
-                  <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="flex-1 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 transition-all duration-300 flex items-center justify-center gap-2 text-sm shadow-lg shadow-indigo-500/10">
+                  <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="flex-1 py-3.5 btn-cyber-glow text-white flex items-center justify-center gap-2 text-sm">
                     <span className="material-symbols-outlined text-sm">launch</span>
                     <span>Visit Live Platform</span>
                   </a>

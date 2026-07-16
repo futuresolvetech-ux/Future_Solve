@@ -219,8 +219,8 @@ export default function Contact() {
             <button 
               type="submit"
               disabled={isSubmitting}
-              className={`w-full bg-gradient-to-r text-white py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_20px_rgba(123,208,255,0.4)] transition-all active:scale-[0.98] mt-4 ${
-                isSubmitting ? 'from-indigo-500/70 to-cyan-500/70 cursor-not-allowed' : 'from-indigo-500 to-cyan-500'
+              className={`w-full btn-cyber-glow text-white py-4 text-lg font-bold mt-4 ${
+                isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
               }`}
             >
               {isSubmitting ? 'Submitting Inquiry...' : 'Submit Inquiry'}
