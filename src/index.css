@@ -28,8 +28,11 @@ p, a, span, button, label {
   font-family: 'Inter', sans-serif;
 }
 
-/* Base Glass Card with iOS Safari Backdrop-Filter Support */
+/* Base Glass Card with Rotating Conic-Gradient Border & iOS Safari Support */
 .glass-card {
+  position: relative;
+  overflow: hidden; /* Clip the rotating conic gradient */
+  z-index: 1;
   background: rgba(30, 41, 59, 0.4);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px); /* Fix glassmorphism on iOS Safari */
@@ -38,11 +41,48 @@ p, a, span, button, label {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* The rotating conic gradient glow line */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent 40%, #22d3ee 85%, #6366f1 100%);
+  transform: translate(-50%, -50%) rotate(0deg);
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+/* The inner mask background - matches card's frosted glass background */
+.glass-card::after {
+  content: '';
+  position: absolute;
+  inset: 1px; /* border thickness */
+  background: rgba(15, 23, 42, 0.9); /* dark theme frosted mask */
+  border-radius: inherit; /* matches parent card's border radius automatically */
+  z-index: -1;
+  transition: background 0.4s ease;
+  pointer-events: none;
+}
+
+/* Hover state overrides */
 .glass-card:hover {
-  border-color: rgba(123, 208, 255, 0.3);
-  box-shadow: 0 10px 30px rgba(123, 208, 255, 0.15);
-  background: rgba(30, 41, 59, 0.6);
+  border-color: transparent;
+  box-shadow: 0 15px 35px rgba(34, 211, 238, 0.12);
   transform: translateY(-6px);
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+  animation: spinGlow 2.5s linear infinite; /* slower spin for larger card surfaces */
+}
+
+.glass-card:hover::after {
+  background: rgba(20, 30, 55, 0.92); /* slightly lighter on hover */
 }
 
 /* Premium Cyber Button with Rotating Glowing Border */
