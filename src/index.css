@@ -85,7 +85,7 @@ p, a, span, button, label {
   background: #0f2238; /* Slightly lighter solid color on hover */
 }
 
-/* Premium Cyber Button with Rotating Glowing Border */
+/* Premium Cyber Button with Rotating Glowing Border & Distinctive Neon Color Sheen */
 .btn-cyber-glow {
   position: relative;
   overflow: hidden;
@@ -96,8 +96,9 @@ p, a, span, button, label {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.05); /* subtle static border */
+  border: 1px solid rgba(34, 211, 238, 0.25); /* Eye-catching static cyan border */
   text-decoration: none;
+  box-shadow: 0 4px 12px rgba(34, 211, 238, 0.05); /* subtle static shadow */
 }
 
 /* The rotating conic gradient glow line */
@@ -116,23 +117,24 @@ p, a, span, button, label {
   pointer-events: none;
 }
 
-/* The inner mask background - matches body dark theme */
+/* The inner mask background - Distinctive cyan-indigo gradient glass sheen */
 .btn-cyber-glow::after {
   content: '';
   position: absolute;
   inset: 1.5px; /* Creates a 1.5px glowing border width */
-  background: #051424; 
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(34, 211, 238, 0.15) 100%), #051424; 
   border-radius: calc(0.75rem - 1.5px);
   z-index: -1;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
   pointer-events: none;
 }
 
 /* Hover / Active states */
 .btn-cyber-glow:hover {
   border-color: transparent;
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.25);
-  transform: translateY(-1.5px);
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.35); /* More vibrant glow on hover */
+  transform: translateY(-2px);
+  color: #ffffff !important;
 }
 
 .btn-cyber-glow:hover::before {
@@ -141,7 +143,7 @@ p, a, span, button, label {
 }
 
 .btn-cyber-glow:hover::after {
-  background: #0a1b2d; /* slightly lighter on hover */
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(34, 211, 238, 0.25) 100%), #0a1b2d; 
 }
 
 .btn-cyber-glow:active {
