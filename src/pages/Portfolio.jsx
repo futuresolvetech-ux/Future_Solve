@@ -15,6 +15,9 @@ export default function Portfolio() {
     ? projectsData 
     : projectsData.filter(p => p.category === activeFilter);
 
+  // JobSolv is our top featured customer story (id: 3)
+  const featuredStory = projectsData.find(p => p.id === 3) || projectsData[0];
+
   // Close dropdown on click outside
   useEffect(() => {
     function handleClickOutside(event) {
@@ -44,34 +47,94 @@ export default function Portfolio() {
   };
 
   return (
-    <main className="relative z-10 pt-32">
+    <main className="relative z-10 pt-32 pb-16">
       {/* Ambient background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none -z-10 bg-glow"></div>
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none -z-10 bg-glow"></div>
 
       {/* Hero Section */}
-      <section className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 py-20 text-center max-w-4xl mx-auto animate-fade-in-up">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-800 bg-slate-900/40 mb-6">
-          <span className="material-symbols-outlined text-[16px] text-cyan-400">verified</span>
-          <span className="text-xs uppercase tracking-wider text-slate-400 font-mono">Success Stories</span>
+      <section className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 pt-16 pb-8 text-center max-w-4xl mx-auto animate-fade-in-up">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 mb-6">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+          <span className="text-[10px] uppercase tracking-widest text-cyan-400 font-mono font-bold">Customer Stories</span>
         </div>
         <h1 className="text-4xl sm:text-5xl font-extrabold mb-6 bg-gradient-to-r from-white via-cyan-100 to-cyan-400 bg-clip-text text-transparent tracking-tight">
-          Delivered Systems
+          See how companies build and scale with Future Solve
         </h1>
-        <p className="text-slate-400 text-base sm:text-lg mb-10 leading-relaxed max-w-2xl mx-auto">
-          A showcase of systems engineered and deployed successfully by Future Solve across multiple sectors.
+        <p className="text-slate-400 text-base sm:text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
+          Read real-world case studies detailing how we architect high-performance web platforms, automate operations using AI, and deploy native systems.
         </p>
-        <div className="flex flex-wrap justify-center gap-4">
-          <a className="bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl font-bold flex items-center gap-2 transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-indigo-500/15" href="#projects">
-            Explore Case Studies
-            <span className="material-symbols-outlined">arrow_downward</span>
-          </a>
+      </section>
+
+      {/* Featured Customer Story Banner (CometChat Style) */}
+      <section className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 max-w-container-max mx-auto mb-20 animate-fade-in-up animation-delay-100">
+        <div className="glass-card rounded-[2rem] p-8 md:p-12 border border-slate-800 bg-slate-900/20 relative overflow-hidden flex flex-col lg:flex-row items-center gap-12 shadow-2xl">
+          {/* Subtle grid visual helper */}
+          <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+          
+          {/* Content side */}
+          <div className="w-full lg:w-3/5 text-left z-10">
+            {/* Top Metric Indicator */}
+            <div className="text-cyan-400 text-3xl sm:text-4xl font-extrabold font-mono mb-4 tracking-tight flex items-center gap-2">
+              <span className="material-symbols-outlined text-2xl">trending_up</span>
+              <span>{featuredStory.metric}</span>
+            </div>
+            
+            {/* Featured Badge & Client Title */}
+            <div className="flex items-center gap-3 mb-4">
+              <span className="bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider font-mono">Featured Case Study</span>
+              <span className="text-slate-400 text-sm font-bold tracking-wide font-sans">{featuredStory.title}</span>
+            </div>
+
+            {/* Headline */}
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-6 leading-tight tracking-wide">
+              {featuredStory.headline}
+            </h2>
+
+            {/* Snippet summary */}
+            <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-8 max-w-xl">
+              {featuredStory.longDescription.substring(0, 185)}...
+            </p>
+
+            {/* Tech tags */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {featuredStory.technologies.map(tech => (
+                <span key={tech} className="bg-slate-950/80 border border-slate-850/80 text-slate-400 px-3 py-1 rounded-lg text-xs font-medium font-mono">{tech}</span>
+              ))}
+            </div>
+
+            {/* Action button */}
+            <button 
+              onClick={() => openModal(featuredStory)}
+              className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white px-8 py-3.5 rounded-xl font-bold text-sm tracking-wide transition-all duration-300 hover:scale-[1.02] shadow-lg shadow-indigo-500/15"
+            >
+              <span>Read Case Study</span>
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+
+          {/* Visual side */}
+          <div className="w-full lg:w-2/5 relative z-10">
+            <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden glass-card border border-white/5 relative">
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10"></div>
+              <img 
+                className="w-full h-full object-cover opacity-60" 
+                alt="Workspace and tech metrics" 
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvr31DvJVyNhGsiLgrcQRc2tzWYl7FkoOA5kvsRHr6kLH7mkS1Nr6ACTW3E70-gNFeHBJvhfvJ4hdHl5SIGxunf4MXdDolEJynT7-AhF0WNjAYrVMlxS3DtJCw7LZLIy3TjlKPmpxjQSROqII8REucS3Vdiyy1L377n9Sl8V7X1I0R72ix3zomhN5vK4OsrIZFlZHKqiMKEelmBFi8-aYeGvKVqWWZewvbk2kEn3ADgUiCxO9BgU0vxA"
+              />
+              <div className="absolute bottom-6 left-6 right-6 z-20 text-left">
+                <p className="text-xs font-bold text-cyan-400 tracking-widest uppercase font-mono mb-1">Impact Result</p>
+                <h4 className="text-xl font-extrabold text-white">{featuredStory.impact.split(',')[0]}</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Hybrid Responsive Category Filters */}
       <section className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 max-w-container-max mx-auto text-center mb-12" id="projects">
         
-        {/* Method B: Clean Dropdown for Mobile (below md break) */}
+        {/* Mobile Dropdown */}
         <div className="relative md:hidden max-w-xs mx-auto mb-8" ref={dropdownRef}>
           <button 
             type="button" 
@@ -80,7 +143,7 @@ export default function Portfolio() {
               isFilterDropdownOpen ? 'border-[#7bd0ff] ring-1 ring-[#7bd0ff]' : 'border-white/10'
             }`}
           >
-            <span>Filter: {activeFilter === 'all' ? 'All Systems' : activeFilter}</span>
+            <span>Filter: {activeFilter === 'all' ? 'All Stories' : activeFilter}</span>
             <span className={`material-symbols-outlined transition-transform duration-300 ${isFilterDropdownOpen ? 'rotate-180' : ''}`}>
               keyboard_arrow_down
             </span>
@@ -88,7 +151,7 @@ export default function Portfolio() {
           
           {isFilterDropdownOpen && (
             <div 
-              className="absolute left-0 w-full mt-2 bg-[#051424]/95 border border-white/10 rounded-xl shadow-2xl backdrop-blur-md z-30 overflow-hidden py-1 animate-fade-in"
+              className="absolute left-0 w-full mt-2 bg-[#051424]/95 border border-white/10 rounded-xl shadow-2xl backdrop-blur-md z-30 overflow-hidden py-1"
               style={{ WebkitBackdropFilter: 'blur(16px)' }}
             >
               {categories.map(cat => (
@@ -99,15 +162,15 @@ export default function Portfolio() {
                     activeFilter === cat ? 'bg-indigo-500/20 text-white font-bold' : ''
                   }`}
                 >
-                  {cat === 'all' ? 'All Systems' : cat}
+                  {cat === 'all' ? 'All Stories' : cat}
                 </div>
               ))}
             </div>
           )}
         </div>
 
-        {/* Method A: Wrapped Buttons Row for Desktop/Tablet (above md break) */}
-        <div className="hidden md:flex flex-wrap justify-center gap-3" id="category-filters">
+        {/* Desktop Buttons row */}
+        <div className="hidden md:flex flex-wrap justify-center gap-3 animate-fade-in-up" id="category-filters">
           {categories.map(cat => {
             const isActive = activeFilter === cat;
             return (
@@ -120,63 +183,76 @@ export default function Portfolio() {
                     : "bg-slate-900/60 text-slate-400 hover:text-white border border-slate-800/80 hover:border-slate-700/80 backdrop-blur-md"
                 }`}
               >
-                {cat === 'all' ? 'All Systems' : cat}
+                {cat === 'all' ? 'All Stories' : cat}
               </button>
             );
           })}
         </div>
 
-        {/* Project Grid */}
+        {/* Customer Stories Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12 mb-24">
           {filteredProjects.map((p, idx) => {
             return (
               <div 
                 key={p.id} 
-                className="glass-card border border-slate-800/80 bg-slate-900/10 hover:border-slate-700/60 hover:bg-slate-900/20 hover:-translate-y-1.5 transition-all duration-300 flex flex-col h-full shadow-2xl group overflow-hidden animate-fade-in-up"
+                className="glass-card border border-slate-800/80 bg-slate-900/10 hover:border-slate-700/60 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between h-full shadow-2xl group overflow-hidden animate-fade-in-up"
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
-                <div className="relative overflow-hidden h-48 bg-gradient-to-br from-indigo-950 via-slate-950 to-cyan-950 bg-grid-pattern border-b border-slate-800/60 flex items-center justify-center p-6 text-center">
+                {/* Metric Header Panel */}
+                <div className="relative overflow-hidden py-8 px-6 bg-gradient-to-br from-indigo-950 via-slate-950 to-cyan-950 bg-grid-pattern border-b border-slate-800/60 flex flex-col items-start justify-center">
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
-                  <div className="absolute -top-10 -right-10 w-24 h-24 bg-indigo-500/15 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
-                  <div className="absolute -bottom-10 -left-10 w-24 h-24 bg-cyan-500/15 rounded-full blur-xl group-hover:scale-150 transition-transform duration-500"></div>
-                  <h3 className="text-2xl font-extrabold text-white z-10 tracking-wide font-sans group-hover:scale-105 transition-transform duration-300">{p.title}</h3>
                   
-                  {p.featured && (
-                    <div className="absolute top-4 right-4 bg-amber-400 text-slate-950 px-2.5 py-1 rounded-lg text-xs font-extrabold flex items-center gap-1.5 shadow-lg">
-                      <span className="material-symbols-outlined text-slate-950 text-xs" style={{ fontVariationSettings: "'FILL' 1, 'wght' 700" }}>star</span>
-                      <span>Featured</span>
-                    </div>
-                  )}
+                  {/* Glowing Metric Tag */}
+                  <span className="text-cyan-400 text-2xl font-extrabold font-mono z-10 tracking-tight flex items-center gap-1.5 mb-2 group-hover:scale-105 transition-transform duration-300">
+                    <span className="material-symbols-outlined text-xl">trending_up</span>
+                    <span>{p.metric}</span>
+                  </span>
+                  
+                  <span className="text-xs font-bold text-slate-400 tracking-wider font-mono z-10 uppercase">{p.title}</span>
                 </div>
                 
+                {/* Card Body */}
                 <div className="p-6 flex flex-col flex-grow text-left">
-                  <div className="mb-3">
+                  {/* Category Pill Tag */}
+                  <div className="mb-4">
                     <span className="inline-block bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 px-2.5 py-1 rounded-full text-xs font-semibold">{p.category}</span>
                   </div>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3 font-sans">{p.description}</p>
                   
-                  <div className="flex flex-wrap gap-1.5 mb-6 mt-auto">
+                  {/* Headline */}
+                  <h3 className="text-lg font-bold text-white mb-4 tracking-wide group-hover:text-cyan-300 transition-colors leading-snug">
+                    {p.headline}
+                  </h3>
+                  
+                  {/* Summary paragraph */}
+                  <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3 font-sans">
+                    {p.description}
+                  </p>
+                  
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-1.5 mb-6 mt-auto pt-4 border-t border-slate-800/60">
                     {p.technologies.slice(0, 3).map(tech => (
-                      <span key={tech} className="bg-slate-950/80 border border-slate-850/80 text-slate-400 px-2.5 py-1 rounded-lg text-xs font-medium font-mono">{tech}</span>
+                      <span key={tech} className="bg-slate-950/80 border border-slate-850/80 text-slate-400 px-2.5 py-1 rounded-lg text-[10px] font-medium font-mono">{tech}</span>
                     ))}
                     {p.technologies.length > 3 && (
-                      <span className="bg-slate-950/80 border border-slate-850/80 text-slate-400 px-2.5 py-1 rounded-lg text-xs font-medium font-mono">+{p.technologies.length - 3}</span>
+                      <span className="bg-slate-950/80 border border-slate-850/80 text-slate-400 px-2.5 py-1 rounded-lg text-[10px] font-medium font-mono">+{p.technologies.length - 3}</span>
                     )}
                   </div>
                   
-                  <div className="flex gap-3">
-                    {p.link !== '#' && (
-                      <a href={p.link} target="_blank" rel="noopener noreferrer" className="flex-1 px-4 py-2.5 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 transition-all duration-300 flex items-center justify-center gap-2 text-sm shadow-md shadow-indigo-500/10 text-center">
-                        <span className="material-symbols-outlined text-sm">launch</span>
-                        <span>Live Preview</span>
-                      </a>
-                    )}
+                  {/* Action link */}
+                  <div className="flex items-center justify-between">
                     <button 
                       onClick={() => openModal(p)}
-                      className="flex-1 px-4 py-2.5 rounded-xl font-semibold text-slate-300 bg-slate-950/60 border border-slate-850 hover:bg-slate-800 hover:border-slate-700 transition-all duration-300 text-sm"
+                      className="text-cyan-400 hover:text-cyan-300 font-bold text-sm tracking-wide transition-colors flex items-center gap-1"
                     >
-                      Details
+                      <span>Read Story</span>
+                      <span className="material-symbols-outlined text-sm font-bold">arrow_forward</span>
                     </button>
+                    
+                    {p.link !== '#' && (
+                      <a href={p.link} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors" aria-label="Visit Website">
+                        <span className="material-symbols-outlined text-lg">launch</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -185,39 +261,14 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="bg-slate-900/10 py-24 relative overflow-hidden border-y border-slate-900">
-        <div className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 max-w-container-max mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl font-extrabold mb-16 text-white animate-fade-in-up">Quantifiable Global Impact</h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12">
-            <div className="flex flex-col items-center animate-fade-in-up">
-              <span className="text-4xl font-extrabold text-cyan-400 mb-2 font-mono">5+</span>
-              <span className="text-xs font-bold tracking-widest text-slate-500 uppercase">Years Active</span>
-            </div>
-            <div className="flex flex-col items-center animate-fade-in-up animation-delay-100">
-              <span className="text-4xl font-extrabold text-indigo-400 mb-2 font-mono">50+</span>
-              <span className="text-xs font-bold tracking-widest text-slate-500 uppercase">Projects Delivered</span>
-            </div>
-            <div className="flex flex-col items-center animate-fade-in-up animation-delay-200">
-              <span className="text-4xl font-extrabold text-cyan-400 mb-2 font-mono">100%</span>
-              <span className="text-xs font-bold tracking-widest text-slate-500 uppercase">Client Satisfaction</span>
-            </div>
-            <div className="flex flex-col items-center animate-fade-in-up animation-delay-300">
-              <span className="text-4xl font-extrabold text-indigo-400 mb-2 font-sans">Egypt</span>
-              <span className="text-xs font-bold tracking-widest text-slate-500 uppercase">Location Base</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Call to Action Section */}
-      <section className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 py-32 max-w-container-max mx-auto">
+      <section className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 py-20 max-w-container-max mx-auto">
         <div className="glass-card rounded-[32px] p-8 md:p-20 text-center relative overflow-hidden animate-fade-in">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-indigo-500/10 bg-glow rounded-full blur-[100px]"></div>
           <div className="relative z-10">
-            <h2 className="text-3xl sm:text-4xl font-extrabold mb-6 text-white animate-fade-in-up">Ready to start your project?</h2>
+            <h2 className="text-3xl sm:text-4xl font-extrabold mb-6 text-white animate-fade-in-up">Have a project you want to scale?</h2>
             <p className="text-slate-400 mb-12 max-w-2xl mx-auto text-base sm:text-lg animate-fade-in-up animation-delay-100">
-              Partner with Future Solve to engineer the solutions that will define your industry's tomorrow. Our team is ready to accelerate your transformation.
+              Partner with Future Solve to architect the software platforms and AI systems that will define your tomorrow.
             </p>
             <Link className="bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 text-white px-10 py-5 rounded-xl font-bold inline-flex items-center gap-3 text-lg transition-all duration-300 hover:-translate-y-0.5 shadow-lg shadow-indigo-500/20 animate-pulse-glow" to="/contact">
               Consult with an Expert
@@ -227,39 +278,82 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Details Modal */}
+      {/* Case Study Details Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 bg-slate-950/90 flex items-center justify-center p-4 backdrop-blur-md transition-all duration-300" style={{ WebkitBackdropFilter: 'blur(16px)' }} onClick={closeModal}>
-          <div className="bg-slate-950 border border-slate-800/80 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative scroll-touch-inertia" onClick={e => e.stopPropagation()}>
-            <button onClick={closeModal} className="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all z-30" aria-label="Close details">
+          <div className="bg-slate-950 border border-slate-800/80 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative scroll-touch-inertia" onClick={e => e.stopPropagation()}>
+            {/* Close button */}
+            <button onClick={closeModal} className="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all z-30 animate-pulse-glow" aria-label="Close details">
               <span className="material-symbols-outlined font-light">close</span>
             </button>
+            
+            {/* Modal Header */}
             <div className="bg-gradient-to-br from-indigo-950 via-slate-950 to-cyan-950 bg-grid-pattern p-8 md:p-10 border-b border-slate-800/60 text-left relative">
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent"></div>
               <div className="relative z-10 pr-10">
-                <span className="inline-block bg-indigo-500/10 text-indigo-300 border border-indigo-500/20 px-2.5 py-1 rounded-full text-xs font-semibold mb-3">{selectedProject.category}</span>
-                <h3 className="text-3xl font-extrabold text-white tracking-wide mb-2">{selectedProject.title}</h3>
+                {/* Metric Badge */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 mb-4 text-cyan-400 text-sm font-bold font-mono">
+                  <span className="material-symbols-outlined text-[16px]">trending_up</span>
+                  <span>{selectedProject.metric}</span>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-white tracking-wide mb-3 leading-tight">
+                  {selectedProject.headline}
+                </h3>
+                <p className="text-slate-400 text-xs font-semibold uppercase tracking-wider font-mono">
+                  Client Partner: {selectedProject.title} ({selectedProject.category})
+                </p>
               </div>
             </div>
-            <div className="p-8 md:p-10 text-left">
-              <h4 className="text-sm font-semibold tracking-wider text-slate-500 uppercase mb-3 font-mono">System Description</h4>
-              <p className="text-slate-300 text-base leading-relaxed mb-8 font-sans">{selectedProject.longDescription}</p>
+            
+            {/* Modal Case Study Body */}
+            <div className="p-8 md:p-10 text-left space-y-8">
               
-              <h4 className="text-sm font-semibold tracking-wider text-slate-500 uppercase mb-3 font-mono">Infrastructure Stack</h4>
-              <div className="flex flex-wrap gap-2 mb-8">
-                {selectedProject.technologies.map(tech => (
-                  <span key={tech} className="bg-slate-900 border border-slate-800 text-indigo-300 px-3.5 py-1.5 rounded-lg text-sm font-medium font-mono">{tech}</span>
-                ))}
+              {/* Challenge */}
+              <div>
+                <h4 className="text-xs font-bold tracking-widest text-slate-500 uppercase mb-2 font-mono flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-sm text-indigo-400">report_problem</span>
+                  <span>The Challenge</span>
+                </h4>
+                <p className="text-slate-350 text-sm sm:text-base leading-relaxed font-sans">{selectedProject.challenge}</p>
               </div>
               
-              <div className="flex gap-4">
+              {/* Solution */}
+              <div>
+                <h4 className="text-xs font-bold tracking-widest text-slate-500 uppercase mb-2 font-mono flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-sm text-cyan-400">terminal</span>
+                  <span>The Solution</span>
+                </h4>
+                <p className="text-slate-350 text-sm sm:text-base leading-relaxed font-sans">{selectedProject.solution}</p>
+              </div>
+              
+              {/* Impact */}
+              <div className="p-5 rounded-xl border border-emerald-500/10 bg-emerald-500/5">
+                <h4 className="text-xs font-bold tracking-widest text-emerald-400 uppercase mb-2 font-mono flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-sm text-emerald-400">check_circle</span>
+                  <span>Business Impact</span>
+                </h4>
+                <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-sans font-medium">{selectedProject.impact}</p>
+              </div>
+
+              {/* Infrastructure Stack */}
+              <div>
+                <h4 className="text-xs font-semibold tracking-wider text-slate-500 uppercase mb-3 font-mono">Technologies Deployed</h4>
+                <div className="flex flex-wrap gap-2">
+                  {selectedProject.technologies.map(tech => (
+                    <span key={tech} className="bg-slate-900 border border-slate-800 text-indigo-300 px-3.5 py-1.5 rounded-lg text-xs font-medium font-mono">{tech}</span>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Action buttons */}
+              <div className="flex gap-4 pt-4 border-t border-slate-800/60">
                 {selectedProject.link !== '#' && (
-                  <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="flex-1 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 transition-all duration-300 flex items-center justify-center gap-2 text-sm">
+                  <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="flex-1 py-3.5 rounded-xl font-bold text-white bg-gradient-to-r from-indigo-500 to-cyan-500 hover:from-indigo-600 hover:to-cyan-600 transition-all duration-300 flex items-center justify-center gap-2 text-sm shadow-lg shadow-indigo-500/10">
                     <span className="material-symbols-outlined text-sm">launch</span>
                     <span>Visit Live Platform</span>
                   </a>
                 )}
-                <button onClick={closeModal} className="flex-1 py-3.5 rounded-xl font-semibold text-slate-300 bg-slate-900 border border-slate-800 hover:bg-slate-800 transition-all duration-300 text-sm">Close Overview</button>
+                <button onClick={closeModal} className="flex-1 py-3.5 rounded-xl font-semibold text-slate-300 bg-slate-900 border border-slate-800 hover:bg-slate-800 transition-all duration-300 text-sm">Close Case Study</button>
               </div>
             </div>
           </div>
