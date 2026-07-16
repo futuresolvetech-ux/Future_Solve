@@ -10,8 +10,6 @@ import putitforsaleImg from '../assets/putitforsale_mockup.png';
 import darbiImg from '../assets/darbi_mockup.png';
 import rahaldriveImg from '../assets/rahaldrive_mockup.png';
 import sidekickImg from '../assets/sidekick_mockup.png';
-import jobsolvLogo from '../assets/jobsolv_logo.png';
-
 // Map project ID to imported asset
 const projectImages = {
   1: rankcodaImg,
@@ -24,9 +22,7 @@ const projectImages = {
 };
 
 // Map project ID to brand logos
-const projectLogos = {
-  3: jobsolvLogo
-};
+const projectLogos = {};
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('all');
