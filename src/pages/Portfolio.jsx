@@ -67,7 +67,7 @@ export default function Portfolio() {
   };
 
   return (
-    <main className="relative z-10 pt-32 pb-16">
+    <main className="relative pt-32">
       {/* Ambient background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[140px] pointer-events-none -z-10 bg-glow"></div>
 
