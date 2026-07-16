@@ -78,34 +78,6 @@ p, a, span, button, label {
   transform: translateY(0.5px);
 }
 
-/* Solid Muted Periwinkle & Muted Blue Gradient Button (Modern CTA Focus) */
-.btn-cyber-solid {
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  border-radius: 0.75rem; /* rounded-xl */
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  text-decoration: none;
-  background: linear-gradient(135deg, #a5b4fc 0%, #60a5fa 100%);
-  color: #051424 !important;
-  box-shadow: 0 4px 20px rgba(165, 180, 252, 0.2);
-}
-
-.btn-cyber-solid:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(165, 180, 252, 0.4);
-  color: #051424 !important;
-}
-
-.btn-cyber-solid:active {
-  transform: translateY(0.5px);
-}
-
 /* --- SVG Border Glow Path Animation --- */
 @keyframes svgGlow {
   0% {
@@ -126,25 +98,10 @@ p, a, span, button, label {
   stroke-linecap: round;
 }
 
-.svg-glow-rect-white {
-  stroke-dasharray: 30 70;
-  stroke-dashoffset: 100;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  stroke: #ffffff;
-  stroke-width: 2.5px;
-  stroke-linecap: round;
-}
-
 /* Activate laser border on hover */
 .btn-cyber-glow:hover .svg-glow-rect {
   opacity: 1;
   animation: svgGlow 2s linear infinite; /* Optimized fast loop for buttons */
-}
-
-.btn-cyber-solid:hover .svg-glow-rect-white {
-  opacity: 1;
-  animation: svgGlow 2s linear infinite;
 }
 
 .glass-card:hover .svg-glow-rect {
