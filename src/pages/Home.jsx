@@ -93,7 +93,7 @@ export default function Home() {
           
           {/* Right Content (Interactive Carousel Card - Fixed Cut-off & Height) */}
           <div className="w-full md:w-1/2 relative animate-fade-in-up animation-delay-400">
-            <div className="relative w-full min-h-[540px] max-w-[450px] mx-auto md:max-w-none animate-float flex flex-col">
+            <div className="relative w-full min-h-[490px] max-w-[450px] mx-auto md:max-w-none animate-float flex flex-col">
               {/* Radial Blur Backing */}
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 to-cyan-500/10 rounded-[2rem] blur-3xl z-0 pointer-events-none"></div>
               
@@ -103,7 +103,7 @@ export default function Home() {
                 <div key={currentSlide} className="animate-fade-in flex flex-col flex-grow justify-between">
                   <div>
                     {/* Slide Image */}
-                    <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/3] mb-6">
+                    <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/3] mb-4">
                       <img 
                         className="w-full h-full object-cover transition-transform duration-700" 
                         alt={heroSlides[currentSlide].title} 
@@ -113,7 +113,7 @@ export default function Home() {
                     </div>
                     
                     {/* Slide Information */}
-                    <div className="p-4 text-left pb-16">
+                    <div className="p-4 text-left pb-10">
                       <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-4 transition-colors ${heroSlides[currentSlide].badgeColor}`}>
                         <span className="material-symbols-outlined text-2xl">{heroSlides[currentSlide].icon}</span>
                       </div>
