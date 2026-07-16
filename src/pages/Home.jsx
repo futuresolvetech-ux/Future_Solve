@@ -306,20 +306,14 @@ export default function Home() {
         <div className="bg-gradient-to-br from-indigo-950 via-slate-950 to-cyan-950 rounded-[2.5rem] p-8 md:p-16 text-center relative overflow-hidden border border-slate-800 shadow-2xl animate-fade-in">
           <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
           <div className="relative z-10">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 text-white tracking-tight">Ready to build the future of your product?</h2>
-            <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 leading-relaxed font-sans">
-              Whether you need to scale a high-performance web platform, launch a native mobile app, or automate your workflows with custom AI systems, our engineers are ready to build your solution.
+            <h2 className="text-xl sm:text-2xl font-bold mb-3 text-slate-400 tracking-tight">Ready to build your solution?</h2>
+            <p className="text-sm text-slate-500 max-w-md mx-auto mb-8 leading-relaxed font-sans">
+              Our engineers are ready to bootstrap and scale your product.
             </p>
-            <Link to="/contact" className="inline-flex btn-cyber-glow text-white px-10 py-5 text-base font-bold text-center">
+            <Link to="/contact" className="inline-flex btn-cyber-solid text-[#051424] px-10 py-5 text-base font-bold text-center">
               <span>Book a Free Strategy Consultation</span>
               <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#22d3ee" />
-                    <stop offset="100%" stopColor="#6366f1" />
-                  </linearGradient>
-                </defs>
-                <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="11" />
+                <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect-white" rx="11" />
               </svg>
             </Link>
           </div>
