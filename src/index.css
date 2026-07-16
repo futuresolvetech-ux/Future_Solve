@@ -41,7 +41,7 @@ p, a, span, button, label {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* The rotating conic gradient glow line */
+/* The rotating conic gradient glow line - slow comet tail with bold white tip */
 .glass-card::before {
   content: '';
   position: absolute;
@@ -49,7 +49,7 @@ p, a, span, button, label {
   left: 50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(from 0deg, transparent 40%, #22d3ee 85%, #6366f1 100%);
+  background: conic-gradient(from 0deg, transparent 0%, rgba(99, 102, 241, 0.1) 20%, rgba(34, 211, 238, 0.4) 60%, #22d3ee 95%, #ffffff 100%);
   transform: translate(-50%, -50%) rotate(0deg);
   z-index: -2;
   opacity: 0;
@@ -78,7 +78,7 @@ p, a, span, button, label {
 
 .glass-card:hover::before {
   opacity: 1;
-  animation: spinGlow 2.5s linear infinite; /* slower spin for larger card surfaces */
+  animation: spinGlow 6s linear infinite; /* slower majestic spin for larger card surfaces */
 }
 
 .glass-card:hover::after {
@@ -101,7 +101,7 @@ p, a, span, button, label {
   box-shadow: 0 4px 12px rgba(34, 211, 238, 0.05); /* subtle static shadow */
 }
 
-/* The rotating conic gradient glow line */
+/* The rotating conic gradient glow line - slow comet tail with bold white tip */
 .btn-cyber-glow::before {
   content: '';
   position: absolute;
@@ -109,7 +109,7 @@ p, a, span, button, label {
   left: 50%;
   width: 180%;
   height: 280%;
-  background: conic-gradient(from 0deg, transparent 40%, #22d3ee 85%, #6366f1 100%);
+  background: conic-gradient(from 0deg, transparent 0%, rgba(99, 102, 241, 0.1) 20%, rgba(34, 211, 238, 0.4) 60%, #22d3ee 95%, #ffffff 100%);
   transform: translate(-50%, -50%) rotate(0deg);
   z-index: -2;
   opacity: 0;
@@ -139,7 +139,7 @@ p, a, span, button, label {
 
 .btn-cyber-glow:hover::before {
   opacity: 1;
-  animation: spinGlow 1.8s linear infinite;
+  animation: spinGlow 3.5s linear infinite; /* slower premium rotation */
 }
 
 .btn-cyber-glow:hover::after {
