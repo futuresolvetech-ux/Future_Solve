@@ -28,10 +28,10 @@ p, a, span, button, label {
   font-family: 'Inter', sans-serif;
 }
 
-/* Base Glass Card with Rotating Conic-Gradient Border & iOS Safari Support */
+/* Base Glass Card with iOS Safari Backdrop-Filter Support */
 .glass-card {
   position: relative;
-  overflow: hidden; /* Clip the rotating conic gradient */
+  overflow: hidden; 
   z-index: 1;
   background: rgba(30, 41, 59, 0.4);
   backdrop-filter: blur(20px);
@@ -41,34 +41,6 @@ p, a, span, button, label {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* The rotating conic gradient glow line - single compact laser segment with bold white tip */
-.glass-card::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200%;
-  height: 200%;
-  background: conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(34, 211, 238, 0.2) 70%, #22d3ee 95%, #ffffff 100%);
-  transform: translate(-50%, -50%) rotate(0deg);
-  z-index: -2;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-}
-
-/* The inner mask background - 2px gap for a thicker bold glowing border line */
-.glass-card::after {
-  content: '';
-  position: absolute;
-  inset: 2px; /* Thicker bold border gap of 2px */
-  background: #091727; /* Solid dark theme color to prevent opacity leakage */
-  border-radius: inherit; /* matches parent card's border radius automatically */
-  z-index: -1;
-  transition: background 0.4s ease;
-  pointer-events: none;
-}
-
 /* Hover state overrides */
 .glass-card:hover {
   border-color: transparent;
@@ -76,16 +48,7 @@ p, a, span, button, label {
   transform: translateY(-6px);
 }
 
-.glass-card:hover::before {
-  opacity: 1;
-  animation: spinGlow 20s linear infinite; /* Slowed down to 20 seconds for an extremely premium crawl */
-}
-
-.glass-card:hover::after {
-  background: #0f2238; /* Slightly lighter solid color on hover */
-}
-
-/* Premium Cyber Button with Rotating Glowing Border & Distinctive Neon Color Sheen */
+/* Premium Cyber Button with Distinctive Neon Color Sheen */
 .btn-cyber-glow {
   position: relative;
   overflow: hidden;
@@ -99,34 +62,7 @@ p, a, span, button, label {
   border: 1px solid rgba(34, 211, 238, 0.25); /* Eye-catching static cyan border */
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(34, 211, 238, 0.05); /* subtle static shadow */
-}
-
-/* The rotating conic gradient glow line - single compact laser segment with bold white tip */
-.btn-cyber-glow::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 180%;
-  height: 280%;
-  background: conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(34, 211, 238, 0.2) 70%, #22d3ee 95%, #ffffff 100%);
-  transform: translate(-50%, -50%) rotate(0deg);
-  z-index: -2;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-/* The inner mask background - 2.5px gap for a thicker bold glowing border line */
-.btn-cyber-glow::after {
-  content: '';
-  position: absolute;
-  inset: 2.5px; /* Creates a 2.5px glowing border width */
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(34, 211, 238, 0.15) 100%), #051424; 
-  border-radius: calc(0.75rem - 2.5px);
-  z-index: -1;
-  transition: all 0.3s ease;
-  pointer-events: none;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(34, 211, 238, 0.15) 100%), #051424;
 }
 
 /* Hover / Active states */
@@ -135,28 +71,42 @@ p, a, span, button, label {
   box-shadow: 0 0 25px rgba(34, 211, 238, 0.35); /* More vibrant glow on hover */
   transform: translateY(-2px);
   color: #ffffff !important;
-}
-
-.btn-cyber-glow:hover::before {
-  opacity: 1;
-  animation: spinGlow 12s linear infinite; /* Slowed down to 12 seconds for a smooth, premium crawl */
-}
-
-.btn-cyber-glow:hover::after {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(34, 211, 238, 0.25) 100%), #0a1b2d; 
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25) 0%, rgba(34, 211, 238, 0.25) 100%), #0a1b2d;
 }
 
 .btn-cyber-glow:active {
   transform: translateY(0.5px);
 }
 
-@keyframes spinGlow {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
+/* --- SVG Border Glow Path Animation --- */
+@keyframes svgGlow {
+  0% {
+    stroke-dashoffset: 1000;
   }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
+  100% {
+    stroke-dashoffset: 0;
   }
+}
+
+.svg-glow-rect {
+  stroke-dasharray: 140 400; /* 140px single light segment, 400px dark gap */
+  stroke-dashoffset: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  stroke: url(#cyan-indigo-gradient);
+  stroke-width: 2.5px;
+  stroke-linecap: round;
+}
+
+/* Activate laser border on hover */
+.btn-cyber-glow:hover .svg-glow-rect {
+  opacity: 1;
+  animation: svgGlow 2.5s linear infinite; /* Slightly faster loop for buttons */
+}
+
+.glass-card:hover .svg-glow-rect {
+  opacity: 1;
+  animation: svgGlow 5s linear infinite; /* Slightly faster loop for cards */
 }
 
 /* Scrollable Container Inertia for iOS Safari */

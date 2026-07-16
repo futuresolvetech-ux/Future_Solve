@@ -223,7 +223,16 @@ export default function Contact() {
                 isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
               }`}
             >
-              {isSubmitting ? 'Submitting Inquiry...' : 'Submit Inquiry'}
+              <span>{isSubmitting ? 'Submitting Inquiry...' : 'Submit Inquiry'}</span>
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#22d3ee" />
+                    <stop offset="100%" stopColor="#6366f1" />
+                  </linearGradient>
+                </defs>
+                <rect className="w-full h-full fill-none svg-glow-rect" rx="12" />
+              </svg>
             </button>
             
             {isSubmitted && (

@@ -77,7 +77,16 @@ export default function Header() {
           {/* Header CTA & Mobile Hamburger */}
           <div className="flex items-center gap-4">
             <Link to="/contact" className="hidden sm:inline-flex btn-cyber-glow text-[#d4e4fa] hover:text-white px-5 py-2.5 text-sm font-bold">
-              Get Started
+              <span>Get Started</span>
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#22d3ee" />
+                    <stop offset="100%" stopColor="#6366f1" />
+                  </linearGradient>
+                </defs>
+                <rect className="w-full h-full fill-none svg-glow-rect" rx="12" />
+              </svg>
             </Link>
             <button onClick={toggleMobileMenu} className="md:hidden text-white hover:text-cyan-400 transition-colors focus:outline-none flex items-center justify-center p-2 rounded-xl border border-white/5 bg-white/5" aria-label="Toggle Menu">
               <span className="material-symbols-outlined text-2xl">{isMobileOpen ? 'close' : 'menu'}</span>
@@ -109,7 +118,16 @@ export default function Header() {
           </nav>
           <div className="mt-auto pt-12">
             <Link to="/contact" onClick={closeMobileMenu} className="block w-full text-center btn-cyber-glow text-white py-4 font-bold">
-              Get Started
+              <span>Get Started</span>
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#22d3ee" />
+                    <stop offset="100%" stopColor="#6366f1" />
+                  </linearGradient>
+                </defs>
+                <rect className="w-full h-full fill-none svg-glow-rect" rx="12" />
+              </svg>
             </Link>
           </div>
         </div>
