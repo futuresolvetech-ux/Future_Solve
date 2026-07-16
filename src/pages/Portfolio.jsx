@@ -314,7 +314,7 @@ export default function Portfolio() {
 
       {/* Case Study Details Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 bg-slate-950/90 flex items-center justify-center p-4 backdrop-blur-md transition-all duration-300" style={{ WebkitBackdropFilter: 'blur(16px)' }} onClick={closeModal}>
+        <div className="fixed inset-0 z-[9999] bg-slate-950/90 flex items-center justify-center p-4 backdrop-blur-md transition-all duration-300" style={{ WebkitBackdropFilter: 'blur(16px)' }} onClick={closeModal}>
           <div className="bg-slate-950 border border-slate-800/80 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative scroll-touch-inertia" onClick={e => e.stopPropagation()}>
             {/* Close button */}
             <button onClick={closeModal} className="absolute top-5 right-5 text-slate-400 hover:text-white p-2 rounded-xl bg-slate-900 border border-slate-800 hover:border-slate-700 transition-all z-30 animate-pulse-glow" aria-label="Close details">
