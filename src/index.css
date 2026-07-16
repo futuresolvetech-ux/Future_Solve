@@ -78,7 +78,7 @@ p, a, span, button, label {
   transform: translateY(0.5px);
 }
 
-/* Solid Neon Gradient Button (CTA Focus) */
+/* Solid Muted Periwinkle & Muted Blue Gradient Button (Modern CTA Focus) */
 .btn-cyber-solid {
   position: relative;
   overflow: hidden;
@@ -91,14 +91,14 @@ p, a, span, button, label {
   cursor: pointer;
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-decoration: none;
-  background: linear-gradient(135deg, #22d3ee 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #a5b4fc 0%, #60a5fa 100%);
   color: #051424 !important;
-  box-shadow: 0 4px 20px rgba(34, 211, 238, 0.2);
+  box-shadow: 0 4px 20px rgba(165, 180, 252, 0.2);
 }
 
 .btn-cyber-solid:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(34, 211, 238, 0.5);
+  box-shadow: 0 0 30px rgba(165, 180, 252, 0.4);
   color: #051424 !important;
 }
 
