@@ -89,7 +89,7 @@ p, a, span, button, label {
 }
 
 .svg-glow-rect {
-  stroke-dasharray: 140 400; /* 140px single light segment, 400px dark gap */
+  stroke-dasharray: 160 420; /* 160px light segment, 420px dark gap */
   stroke-dashoffset: 1000;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -101,12 +101,12 @@ p, a, span, button, label {
 /* Activate laser border on hover */
 .btn-cyber-glow:hover .svg-glow-rect {
   opacity: 1;
-  animation: svgGlow 2.5s linear infinite; /* Slightly faster loop for buttons */
+  animation: svgGlow 2s linear infinite; /* Optimized fast loop for buttons */
 }
 
 .glass-card:hover .svg-glow-rect {
   opacity: 1;
-  animation: svgGlow 5s linear infinite; /* Slightly faster loop for cards */
+  animation: svgGlow 4s linear infinite; /* Optimized fast loop for cards */
 }
 
 /* Scrollable Container Inertia for iOS Safari */
