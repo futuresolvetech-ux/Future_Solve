@@ -1,13 +1,60 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { servicesData, workflowData, statsData } from '../data/futureSolveData';
 
+// Import generated UI mockup assets
+import rankcodaImg from '../assets/rankcoda_mockup.png';
+import darbiImg from '../assets/darbi_mockup.png';
+import putitforsaleImg from '../assets/putitforsale_mockup.png';
+
 export default function Home() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   const statsList = [
     { value: statsData.yearsActive, label: 'Years Active', color: 'text-cyan-400' },
     { value: statsData.projectsDelivered, label: 'Projects Delivered', color: 'text-indigo-400' },
     { value: statsData.clientSatisfaction, label: 'Client Satisfaction', color: 'text-cyan-400' }
   ];
+
+  // Carousel slides data for services offered
+  const heroSlides = [
+    {
+      title: "Automated Scalability",
+      description: "Intelligent systems that learn from your data to predict and resolve operational bottlenecks before they occur.",
+      icon: "psychology",
+      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDvr31DvJVyNhGsiLgrcQRc2tzWYl7FkoOA5kvsRHr6kLH7mkS1Nr6ACTW3E70-gNFeHBJvhfvJ4hdHl5SIGxunf4MXdDolEJynT7-AhF0WNjAYrVMlxS3DtJCw7LZLIy3TjlKPmpxjQSROqII8REucS3Vdiyy1L377n9Sl8V7X1I0R72ix3zomhN5vK4OsrIZFlZHKqiMKEelmBFi8-aYeGvKVqWWZewvbk2kEn3ADgUiCxO9BgU0vxA",
+      badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20"
+    },
+    {
+      title: "Web Platform Engineering",
+      description: "We engineer high-fidelity web portals, management systems, and high-speed dashboard applications to scale business.",
+      icon: "desktop_windows",
+      image: rankcodaImg,
+      badgeColor: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20"
+    },
+    {
+      title: "Mobile App Development",
+      description: "Sleek and high-performance native iOS and Android mobile apps equipped with offline-first capabilities.",
+      icon: "devices",
+      image: darbiImg,
+      badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20"
+    },
+    {
+      title: "Cloud & Infrastructure",
+      description: "Secure migrations establishing high-availability microservices, CI/CD pipelines, and auto-scaling architectures.",
+      icon: "cloud_queue",
+      image: putitforsaleImg,
+      badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+    }
+  ];
+
+  // Auto-rotate slides
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % heroSlides.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, [heroSlides.length]);
 
   return (
     <main className="pt-20">
@@ -44,22 +91,54 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Right Content (Interactive Card) */}
+          {/* Right Content (Interactive Carousel Card) */}
           <div className="w-full md:w-1/2 relative animate-fade-in-up animation-delay-400">
             <div className="relative w-full aspect-square max-w-[450px] mx-auto md:max-w-none animate-float">
+              {/* Radial Blur Backing */}
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 to-cyan-500/10 rounded-[2rem] blur-3xl z-0 pointer-events-none"></div>
-              <div className="relative glass-card rounded-[2rem] p-4 border border-slate-800/80 bg-slate-900/40 hover:border-slate-700/60 transition-all duration-500 z-10 group overflow-hidden flex flex-col h-full">
-                <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/3] mb-6">
-                  <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Circuit board with neon pathways" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvr31DvJVyNhGsiLgrcQRc2tzWYl7FkoOA5kvsRHr6kLH7mkS1Nr6ACTW3E70-gNFeHBJvhfvJ4hdHl5SIGxunf4MXdDolEJynT7-AhF0WNjAYrVMlxS3DtJCw7LZLIy3TjlKPmpxjQSROqII8REucS3Vdiyy1L377n9Sl8V7X1I0R72ix3zomhN5vK4OsrIZFlZHKqiMKEelmBFi8-aYeGvKVqWWZewvbk2kEn3ADgUiCxO9BgU0vxA"/>
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
-                </div>
-                <div className="p-4 text-left">
-                  <div className="w-12 h-12 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-4 text-cyan-400">
-                    <span className="material-symbols-outlined text-2xl">terminal</span>
+              
+              <div className="relative glass-card rounded-[2rem] p-4 border border-slate-800/80 bg-slate-900/40 hover:border-slate-700/60 transition-all duration-500 z-10 overflow-hidden flex flex-col justify-between h-full">
+                
+                {/* Active Slide Rendering Container */}
+                <div key={currentSlide} className="animate-fade-in flex flex-col h-full justify-between">
+                  <div>
+                    {/* Slide Image */}
+                    <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/3] mb-6">
+                      <img 
+                        className="w-full h-full object-cover transition-transform duration-700" 
+                        alt={heroSlides[currentSlide].title} 
+                        src={heroSlides[currentSlide].image}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent"></div>
+                    </div>
+                    
+                    {/* Slide Information */}
+                    <div className="p-4 text-left">
+                      <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-4 transition-colors ${heroSlides[currentSlide].badgeColor}`}>
+                        <span className="material-symbols-outlined text-2xl">{heroSlides[currentSlide].icon}</span>
+                      </div>
+                      <h3 className="text-xl font-bold text-white mb-2 tracking-wide">{heroSlides[currentSlide].title}</h3>
+                      <p className="text-slate-400 text-sm leading-relaxed">{heroSlides[currentSlide].description}</p>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2 tracking-wide">Automated Scalability</h3>
-                  <p className="text-slate-400 text-sm leading-relaxed">Intelligent systems that learn from your data to predict and resolve bottlenecks before they occur.</p>
                 </div>
+
+                {/* Manual Navigation Dots Overlay */}
+                <div className="absolute bottom-6 right-8 z-20 flex gap-2">
+                  {heroSlides.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentSlide(idx)}
+                      className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                        currentSlide === idx 
+                          ? "bg-cyan-400 w-6 shadow-[0_0_6px_#22d3ee]" 
+                          : "bg-slate-700 hover:bg-slate-500"
+                      }`}
+                      aria-label={`Go to slide ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+
               </div>
             </div>
           </div>
