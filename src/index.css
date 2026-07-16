@@ -57,15 +57,15 @@ p, a, span, button, label {
   pointer-events: none;
 }
 
-/* The inner mask background - offset to top to hide top border glow while keeping round corners */
+/* The inner mask background - Solid opaque to block any light leak through the card body */
 .glass-card::after {
   content: '';
   position: absolute;
-  top: -2px; /* Extends mask upwards to block top border glow */
+  top: 0px; /* Aligns with top edge to block top border glow */
   left: 1px;
   bottom: 1px;
   right: 1px;
-  background: rgba(15, 23, 42, 0.9); /* dark theme frosted mask */
+  background: #091727; /* Solid dark theme color to prevent opacity leakage */
   border-radius: inherit; /* matches parent card's border radius automatically */
   z-index: -1;
   transition: background 0.4s ease;
@@ -86,7 +86,7 @@ p, a, span, button, label {
 }
 
 .glass-card:hover::after {
-  background: rgba(20, 30, 55, 0.92); /* slightly lighter on hover */
+  background: #0f2238; /* Slightly lighter solid color on hover */
 }
 
 /* Premium Cyber Button with Rotating Glowing Border */
