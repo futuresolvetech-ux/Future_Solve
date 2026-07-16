@@ -73,7 +73,8 @@ p, a, span, button, label {
 /* Hover state overrides */
 .glass-card:hover {
   border-color: transparent;
-  box-shadow: 0 15px 35px rgba(34, 211, 238, 0.12);
+  /* Directional shadow: downwards only, cuts off top glow using negative spread */
+  box-shadow: 0 20px 30px -10px rgba(34, 211, 238, 0.18);
   transform: translateY(-6px);
 }
 
