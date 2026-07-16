@@ -5,7 +5,7 @@ import { servicesData, workflowData, statsData } from '../data/futureSolveData';
 // Import generated UI mockup assets
 import rankcodaImg from '../assets/rankcoda_mockup.png';
 import darbiImg from '../assets/darbi_mockup.png';
-import putitforsaleImg from '../assets/putitforsale_mockup.png';
+import cloudImg from '../assets/cloud_mockup.png';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -43,7 +43,7 @@ export default function Home() {
       title: "Cloud & Infrastructure",
       description: "Secure migrations establishing high-availability microservices, CI/CD pipelines, and auto-scaling architectures.",
       icon: "cloud_queue",
-      image: putitforsaleImg,
+      image: cloudImg,
       badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
     }
   ];
@@ -91,16 +91,16 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Right Content (Interactive Carousel Card) */}
+          {/* Right Content (Interactive Carousel Card - Fixed Cut-off & Height) */}
           <div className="w-full md:w-1/2 relative animate-fade-in-up animation-delay-400">
-            <div className="relative w-full aspect-square max-w-[450px] mx-auto md:max-w-none animate-float">
+            <div className="relative w-full min-h-[540px] max-w-[450px] mx-auto md:max-w-none animate-float flex flex-col">
               {/* Radial Blur Backing */}
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/10 to-cyan-500/10 rounded-[2rem] blur-3xl z-0 pointer-events-none"></div>
               
-              <div className="relative glass-card rounded-[2rem] p-4 border border-slate-800/80 bg-slate-900/40 hover:border-slate-700/60 transition-all duration-500 z-10 overflow-hidden flex flex-col justify-between h-full">
+              <div className="relative glass-card rounded-[2rem] p-4 border border-slate-800/80 bg-slate-900/40 hover:border-slate-700/60 transition-all duration-500 z-10 overflow-hidden flex flex-col justify-between flex-grow">
                 
                 {/* Active Slide Rendering Container */}
-                <div key={currentSlide} className="animate-fade-in flex flex-col h-full justify-between">
+                <div key={currentSlide} className="animate-fade-in flex flex-col flex-grow justify-between">
                   <div>
                     {/* Slide Image */}
                     <div className="relative overflow-hidden rounded-[1.5rem] aspect-[4/3] mb-6">
@@ -113,7 +113,7 @@ export default function Home() {
                     </div>
                     
                     {/* Slide Information */}
-                    <div className="p-4 text-left">
+                    <div className="p-4 text-left pb-16">
                       <div className={`w-12 h-12 rounded-xl border flex items-center justify-center mb-4 transition-colors ${heroSlides[currentSlide].badgeColor}`}>
                         <span className="material-symbols-outlined text-2xl">{heroSlides[currentSlide].icon}</span>
                       </div>
