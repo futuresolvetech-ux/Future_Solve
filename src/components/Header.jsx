@@ -1,8 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 export default function Header() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => {
     setIsMobileOpen(!isMobileOpen);
@@ -20,9 +33,16 @@ export default function Header() {
 
   return (
     <>
-      {/* Top Navigation Bar with fluid mobile-first padding */}
-      <header className="fixed top-0 w-full z-50 bg-slate-950/70 backdrop-blur-xl border-b border-white/10 shadow-sm" style={{ WebkitBackdropFilter: 'blur(20px)' }}>
-        <nav className="flex justify-between items-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 h-20 w-full max-w-container-max mx-auto">
+      {/* Top Navigation Bar with fluid mobile-first padding & dynamic glass transition */}
+      <header 
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+          isScrolled 
+            ? 'bg-[#051424]/80 backdrop-blur-xl border-b border-white/5 shadow-2xl h-20' 
+            : 'bg-transparent border-b border-transparent h-24'
+        }`}
+        style={{ WebkitBackdropFilter: isScrolled ? 'blur(24px)' : 'none' }}
+      >
+        <nav className="flex justify-between items-center px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 h-full w-full max-w-container-max mx-auto">
           <div className="flex flex-col text-left">
             <Link to="/" onClick={closeMobileMenu} className="text-xl font-extrabold tracking-wider text-white hover:text-cyan-400 transition-colors leading-none">
               FUTURE SOLVE

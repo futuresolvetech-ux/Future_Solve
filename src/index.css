@@ -130,6 +130,53 @@ p, a, span, button, label {
                     linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
 
+/* Animated grid background drift */
+@keyframes gridDrift {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 40px 40px;
+  }
+}
+.animate-grid-drift {
+  animation: gridDrift 25s linear infinite;
+}
+
+/* Slowly morphing and floating ambient glow blobs */
+@keyframes blobFloat {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(40px, -60px) scale(1.12);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.93);
+  }
+}
+
+@keyframes blobFloatAlt {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-50px, 50px) scale(1.18);
+  }
+}
+
+.animate-blob-float {
+  animation: blobFloat 25s ease-in-out infinite;
+}
+
+.animate-blob-float-delayed {
+  animation: blobFloat 30s ease-in-out infinite 5s;
+}
+
+.animate-blob-float-alt {
+  animation: blobFloatAlt 28s ease-in-out infinite;
+}
+
 /* Text Gradient Effect */
 .text-gradient {
   background: linear-gradient(135deg, #bec6e0 0%, #7bd0ff 100%);

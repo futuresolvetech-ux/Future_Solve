@@ -9,17 +9,30 @@ import Contact from './pages/Contact';
 
 export default function App() {
   return (
-    <div className="flex flex-col min-h-screen">
-      <Header />
-      <div className="flex-grow">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+    <div className="flex flex-col min-h-screen relative bg-[#051424] overflow-x-hidden">
+      {/* Global Animated Background Container */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        {/* Slowly crawling space grid */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-10 animate-grid-drift"></div>
+        {/* Soft, breathing colored ambient blobs */}
+        <div className="absolute top-[-10%] left-[-10%] w-[55vw] h-[55vw] bg-indigo-500/10 rounded-full blur-[130px] animate-blob-float"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[65vw] h-[65vw] bg-cyan-500/15 rounded-full blur-[150px] animate-blob-float-delayed"></div>
+        <div className="absolute top-[40%] right-[10%] w-[40vw] h-[40vw] bg-emerald-500/5 rounded-full blur-[110px] animate-blob-float-alt"></div>
       </div>
-      <Footer />
+
+      {/* Main Website Content positioned above background */}
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Header />
+        <div className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </div>
   );
 }
