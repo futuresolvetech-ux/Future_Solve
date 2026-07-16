@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { servicesData, workflowData, statsData } from '../data/futureSolveData';
 
 // Import generated UI mockup assets
-import rankcodaImg from '../assets/rankcoda_mockup.png';
-import darbiImg from '../assets/darbi_mockup.png';
-import cloudImg from '../assets/cloud_mockup.png';
+import webHeroImg from '../assets/web_hero.png';
+import mobileHeroImg from '../assets/mobile_hero.png';
+import cloudHeroImg from '../assets/cloud_hero.png';
 
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -29,21 +29,21 @@ export default function Home() {
       title: "Web Platform Engineering",
       description: "We engineer high-fidelity web portals, management systems, and high-speed dashboard applications to scale business.",
       icon: "desktop_windows",
-      image: rankcodaImg,
+      image: webHeroImg,
       badgeColor: "bg-indigo-500/10 text-indigo-400 border-indigo-500/20"
     },
     {
       title: "Mobile App Development",
       description: "Sleek and high-performance native iOS and Android mobile apps equipped with offline-first capabilities.",
       icon: "devices",
-      image: darbiImg,
+      image: mobileHeroImg,
       badgeColor: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20"
     },
     {
       title: "Cloud & Infrastructure",
       description: "Secure migrations establishing high-availability microservices, CI/CD pipelines, and auto-scaling architectures.",
       icon: "cloud_queue",
-      image: cloudImg,
+      image: cloudHeroImg,
       badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
     }
   ];
