@@ -57,14 +57,11 @@ p, a, span, button, label {
   pointer-events: none;
 }
 
-/* The inner mask background - Solid opaque to block any light leak through the card body */
+/* The inner mask background - Centered symmetrically to allow 4-sided border glow with zero leak */
 .glass-card::after {
   content: '';
   position: absolute;
-  top: 0px; /* Aligns with top edge to block top border glow */
-  left: 1px;
-  bottom: 1px;
-  right: 1px;
+  inset: 1px; /* 1px gap on all 4 sides (top, left, bottom, right) */
   background: #091727; /* Solid dark theme color to prevent opacity leakage */
   border-radius: inherit; /* matches parent card's border radius automatically */
   z-index: -1;
@@ -75,8 +72,7 @@ p, a, span, button, label {
 /* Hover state overrides */
 .glass-card:hover {
   border-color: transparent;
-  /* Directional shadow: downwards only, cuts off top glow using negative spread */
-  box-shadow: 0 20px 30px -10px rgba(34, 211, 238, 0.18);
+  box-shadow: 0 15px 35px rgba(34, 211, 238, 0.12); /* Soft, premium balanced ambient glow */
   transform: translateY(-6px);
 }
 
