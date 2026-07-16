@@ -10,6 +10,7 @@ import putitforsaleImg from '../assets/putitforsale_mockup.png';
 import darbiImg from '../assets/darbi_mockup.png';
 import rahaldriveImg from '../assets/rahaldrive_mockup.png';
 import sidekickImg from '../assets/sidekick_mockup.png';
+import jobsolvLogo from '../assets/jobsolv_logo.png';
 
 // Map project ID to imported asset
 const projectImages = {
@@ -20,6 +21,11 @@ const projectImages = {
   5: darbiImg,
   6: rahaldriveImg,
   7: sidekickImg
+};
+
+// Map project ID to brand logos
+const projectLogos = {
+  3: jobsolvLogo
 };
 
 export default function Portfolio() {
@@ -111,9 +117,17 @@ export default function Portfolio() {
             </div>
             
             {/* Featured Badge & Client Title */}
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex flex-wrap items-center gap-4 mb-6">
               <span className="bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wider font-mono">Featured Case Study</span>
-              <span className="text-slate-400 text-sm font-bold tracking-wide font-sans">{featuredStory.title}</span>
+              {projectLogos[featuredStory.id] ? (
+                <img 
+                  src={projectLogos[featuredStory.id]} 
+                  alt={`${featuredStory.title} Logo`}
+                  className="h-7 object-contain bg-white/95 px-3 py-1 rounded-lg border border-white/20 shadow-sm"
+                />
+              ) : (
+                <span className="text-slate-400 text-sm font-bold tracking-wide font-sans">{featuredStory.title}</span>
+              )}
             </div>
 
             {/* Headline */}
@@ -270,12 +284,21 @@ export default function Portfolio() {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10"></div>
                   
                   {/* Glowing Metric Tag overlay */}
-                  <div className="relative z-20 flex flex-col items-start">
-                    <span className="bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 px-2.5 py-1 rounded-lg text-xs font-extrabold font-mono flex items-center gap-1.5 mb-2 shadow-lg backdrop-blur-md">
+                  <div className="relative z-20 flex flex-col items-start w-full">
+                    {projectLogos[p.id] ? (
+                      <img 
+                        src={projectLogos[p.id]} 
+                        alt={`${p.title} Logo`}
+                        className="h-6 object-contain mb-3 bg-white/95 px-2.5 py-1 rounded-lg border border-white/20 shadow-md"
+                      />
+                    ) : (
+                      <span className="text-[10px] font-bold text-slate-400 tracking-wider font-mono uppercase mb-2">{p.title}</span>
+                    )}
+                    
+                    <span className="bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 px-2.5 py-1 rounded-lg text-xs font-extrabold font-mono flex items-center gap-1.5 shadow-lg backdrop-blur-md">
                       <span className="material-symbols-outlined text-[10px]">trending_up</span>
                       <span>{p.metric}</span>
                     </span>
-                    <span className="text-[10px] font-bold text-slate-400 tracking-wider font-mono uppercase">{p.title}</span>
                   </div>
                 </div>
                 
@@ -389,11 +412,24 @@ export default function Portfolio() {
               <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
               
               <div className="relative z-20">
-                {/* Metric Badge */}
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 mb-4 text-cyan-400 text-sm font-bold font-mono backdrop-blur-md">
-                  <span className="material-symbols-outlined text-[16px]">trending_up</span>
-                  <span>{selectedProject.metric}</span>
+                {/* Brand Logo & Metric Badge Row */}
+                <div className="flex flex-wrap items-center gap-3 mb-4">
+                  {projectLogos[selectedProject.id] ? (
+                    <img 
+                      src={projectLogos[selectedProject.id]} 
+                      alt={`${selectedProject.title} Logo`}
+                      className="h-8 object-contain bg-white/95 px-3.5 py-1 rounded-lg border border-white/20 shadow-md"
+                    />
+                  ) : (
+                    <span className="text-sm font-bold text-white tracking-wider uppercase">{selectedProject.title}</span>
+                  )}
+                  
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/20 bg-cyan-500/5 text-cyan-400 text-sm font-bold font-mono backdrop-blur-md">
+                    <span className="material-symbols-outlined text-[16px]">trending_up</span>
+                    <span>{selectedProject.metric}</span>
+                  </div>
                 </div>
+                
                 <h3 className="text-2xl md:text-3xl font-extrabold text-white tracking-wide mb-3 leading-tight">
                   {selectedProject.headline}
                 </h3>
