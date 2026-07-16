@@ -84,14 +84,14 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-fade-in-up animation-delay-300">
               <Link to="/services" className="btn-cyber-glow text-white font-bold px-8 py-4 text-sm tracking-wide">
                 <span>Explore Services</span>
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#22d3ee" />
                       <stop offset="100%" stopColor="#6366f1" />
                     </linearGradient>
                   </defs>
-                  <rect className="w-full h-full fill-none svg-glow-rect" rx="12" />
+                  <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="11" />
                 </svg>
               </Link>
               <Link to="/portfolio" className="bg-slate-900/60 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 text-slate-355 hover:text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:scale-[1.02] text-center text-sm tracking-wide">
@@ -108,14 +108,14 @@ export default function Home() {
               
               <div className="relative glass-card rounded-[2rem] p-4 border border-slate-800/80 bg-slate-900/40 hover:border-slate-700/60 transition-all duration-500 z-10 overflow-hidden flex flex-col justify-between flex-grow">
                 {/* SVG border glow outline for card */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#22d3ee" />
                       <stop offset="100%" stopColor="#6366f1" />
                     </linearGradient>
                   </defs>
-                  <rect className="w-full h-full fill-none svg-glow-rect" rx="32" />
+                  <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="31" />
                 </svg>
                 
                 {/* Active Slide Rendering Container */}
@@ -201,14 +201,14 @@ export default function Home() {
                 style={{ animationDelay: `${idx * 150}ms` }}
               >
                 {/* SVG border glow outline for card */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#22d3ee" />
                       <stop offset="100%" stopColor="#6366f1" />
                     </linearGradient>
                   </defs>
-                  <rect className="w-full h-full fill-none svg-glow-rect" rx="16" />
+                  <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="15" />
                 </svg>
 
                 <div>
@@ -249,14 +249,14 @@ export default function Home() {
                 style={{ animationDelay: `${idx * 150}ms` }}
               >
                 {/* SVG border glow outline for card */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#22d3ee" />
                       <stop offset="100%" stopColor="#6366f1" />
                     </linearGradient>
                   </defs>
-                  <rect className="w-full h-full fill-none svg-glow-rect" rx="16" />
+                  <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="15" />
                 </svg>
 
                 <span className={`text-4xl font-extrabold mb-2 font-mono ${stat.color}`}>{stat.value}</span>
@@ -283,14 +283,14 @@ export default function Home() {
               style={{ animationDelay: `${idx * 150}ms` }}
             >
               {/* SVG border glow outline for card */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#22d3ee" />
                     <stop offset="100%" stopColor="#6366f1" />
                   </linearGradient>
                 </defs>
-                <rect className="w-full h-full fill-none svg-glow-rect" rx="12" />
+                <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="11" />
               </svg>
 
               <div className={`text-3xl font-extrabold mb-4 font-mono ${w.color}`}>{w.phase}</div>
@@ -312,14 +312,14 @@ export default function Home() {
             </p>
             <Link to="/contact" className="inline-flex btn-cyber-glow text-white px-10 py-5 text-base font-bold text-center">
               <span>Book a Free Strategy Consultation</span>
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#22d3ee" />
                     <stop offset="100%" stopColor="#6366f1" />
                   </linearGradient>
                 </defs>
-                <rect className="w-full h-full fill-none svg-glow-rect" rx="12" />
+                <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="11" />
               </svg>
             </Link>
           </div>

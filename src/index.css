@@ -81,7 +81,7 @@ p, a, span, button, label {
 /* --- SVG Border Glow Path Animation --- */
 @keyframes svgGlow {
   0% {
-    stroke-dashoffset: 1000;
+    stroke-dashoffset: 100;
   }
   100% {
     stroke-dashoffset: 0;
@@ -89,8 +89,8 @@ p, a, span, button, label {
 }
 
 .svg-glow-rect {
-  stroke-dasharray: 160 420; /* 160px light segment, 420px dark gap */
-  stroke-dashoffset: 1000;
+  stroke-dasharray: 30 70; /* Exactly 30% light segment, 70% dark gap. No duplicates ever! */
+  stroke-dashoffset: 100;
   opacity: 0;
   transition: opacity 0.3s ease;
   stroke: url(#cyan-indigo-gradient);

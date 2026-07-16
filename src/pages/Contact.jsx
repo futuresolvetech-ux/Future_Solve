@@ -224,14 +224,14 @@ export default function Contact() {
               }`}
             >
               <span>{isSubmitting ? 'Submitting Inquiry...' : 'Submit Inquiry'}</span>
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#22d3ee" />
                     <stop offset="100%" stopColor="#6366f1" />
                   </linearGradient>
                 </defs>
-                <rect className="w-full h-full fill-none svg-glow-rect" rx="12" />
+                <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="11" />
               </svg>
             </button>
             

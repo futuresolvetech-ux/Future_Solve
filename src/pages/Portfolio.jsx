@@ -89,14 +89,14 @@ export default function Portfolio() {
       <section className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 max-w-container-max mx-auto mb-20 animate-fade-in-up animation-delay-100">
         <div className="glass-card rounded-[2rem] p-8 md:p-12 border border-slate-800 bg-slate-900/20 relative overflow-hidden flex flex-col lg:flex-row items-center gap-12 shadow-2xl">
           {/* SVG border glow outline for card */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+          <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#22d3ee" />
                 <stop offset="100%" stopColor="#6366f1" />
               </linearGradient>
             </defs>
-            <rect className="w-full h-full fill-none svg-glow-rect" rx="32" />
+            <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="31" />
           </svg>
           {/* Subtle grid visual helper */}
           <div className="absolute inset-0 bg-grid-pattern opacity-5 pointer-events-none"></div>
@@ -140,14 +140,14 @@ export default function Portfolio() {
             >
               <span>Read Case Study</span>
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#22d3ee" />
                     <stop offset="100%" stopColor="#6366f1" />
                   </linearGradient>
                 </defs>
-                <rect className="w-full h-full fill-none svg-glow-rect" rx="12" />
+                <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="11" />
               </svg>
             </button>
           </div>
@@ -155,14 +155,14 @@ export default function Portfolio() {
           {/* Visual side */}
           <div className="w-full lg:w-2/5 relative z-10">
             <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden glass-card border border-white/5 relative">
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#22d3ee" />
                     <stop offset="100%" stopColor="#6366f1" />
                   </linearGradient>
                 </defs>
-                <rect className="w-full h-full fill-none svg-glow-rect" rx="16" />
+                <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="15" />
               </svg>
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10 m-[2px] rounded-[14px]"></div>
               <img 
@@ -247,14 +247,14 @@ export default function Portfolio() {
                 style={{ animationDelay: `${idx * 100}ms` }}
               >
                 {/* SVG border glow outline for card */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#22d3ee" />
                       <stop offset="100%" stopColor="#6366f1" />
                     </linearGradient>
                   </defs>
-                  <rect className="w-full h-full fill-none svg-glow-rect" rx="16" />
+                  <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="15" />
                 </svg>
                 {/* Metric Header Panel with Project Mockup Image - Inset to show border glow */}
                 <div className="relative overflow-hidden h-48 bg-slate-950 border-b border-slate-800/60 flex flex-col items-start justify-end p-6 group/header m-[2px] mb-0 rounded-t-[14px]">
@@ -336,6 +336,15 @@ export default function Portfolio() {
       {/* Call to Action Section */}
       <section className="px-4 sm:px-8 md:px-16 lg:px-24 xl:px-36 py-20 max-w-container-max mx-auto">
         <div className="glass-card rounded-[32px] p-8 md:p-20 text-center relative overflow-hidden animate-fade-in">
+          <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#22d3ee" />
+                <stop offset="100%" stopColor="#6366f1" />
+              </linearGradient>
+            </defs>
+            <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="31" />
+          </svg>
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-indigo-500/10 bg-glow rounded-full blur-[100px]"></div>
           <div className="relative z-10">
             <h2 className="text-3xl sm:text-4xl font-extrabold mb-6 text-white animate-fade-in-up">Have a project you want to scale?</h2>
@@ -345,14 +354,14 @@ export default function Portfolio() {
             <Link className="inline-flex items-center gap-3 btn-cyber-glow text-white px-10 py-5 text-lg font-bold" to="/contact">
               <span>Consult with an Expert</span>
               <span className="material-symbols-outlined text-sm">launch</span>
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+              <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                   <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" stopColor="#22d3ee" />
                     <stop offset="100%" stopColor="#6366f1" />
                   </linearGradient>
                 </defs>
-                <rect className="w-full h-full fill-none svg-glow-rect" rx="12" />
+                <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="11" />
               </svg>
             </Link>
           </div>
@@ -440,14 +449,14 @@ export default function Portfolio() {
                   <a href={selectedProject.link} target="_blank" rel="noopener noreferrer" className="flex-1 py-3.5 btn-cyber-glow text-white flex items-center justify-center gap-2 text-sm">
                     <span className="material-symbols-outlined text-sm">launch</span>
                     <span>Visit Live Platform</span>
-                    <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                       <defs>
                         <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                           <stop offset="0%" stopColor="#22d3ee" />
                           <stop offset="100%" stopColor="#6366f1" />
                         </linearGradient>
                       </defs>
-                      <rect className="w-full h-full fill-none svg-glow-rect" rx="12" />
+                      <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="11" />
                     </svg>
                   </a>
                 )}

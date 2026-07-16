@@ -52,14 +52,14 @@ export default function Services() {
                 style={{ animationDelay: `${idx * 150}ms` }}
               >
                 {/* SVG border glow outline for card */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stopColor="#22d3ee" />
                       <stop offset="100%" stopColor="#6366f1" />
                     </linearGradient>
                   </defs>
-                  <rect className="w-full h-full fill-none svg-glow-rect" rx="12" />
+                  <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="11" />
                 </svg>
 
                 <div className="flex flex-col md:flex-row gap-8 items-start">
@@ -87,14 +87,14 @@ export default function Services() {
         <section className="mt-32 mb-16 animate-fade-in animation-delay-300">
           <div className="relative w-full h-[400px] rounded-2xl overflow-hidden glass-card border border-white/5 hover:border-white/10 transition-all duration-300">
             {/* SVG border glow outline for card */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+            <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
               <defs>
                 <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" stopColor="#22d3ee" />
                   <stop offset="100%" stopColor="#6366f1" />
                 </linearGradient>
               </defs>
-              <rect className="w-full h-full fill-none svg-glow-rect" rx="16" />
+              <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="15" />
             </svg>
 
             {/* High-fidelity dark blend overlay */}
@@ -120,14 +120,14 @@ export default function Services() {
                   className="inline-flex btn-cyber-glow text-white px-8 py-3.5 text-sm font-bold tracking-wide text-center"
                 >
                   <span>Schedule a Consult</span>
-                  <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="absolute top-[1px] left-[1px] right-[1px] bottom-[1px] w-[calc(100%-2px)] h-[calc(100%-2px)] pointer-events-none" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <linearGradient id="cyan-indigo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                         <stop offset="0%" stopColor="#22d3ee" />
                         <stop offset="100%" stopColor="#6366f1" />
                       </linearGradient>
                     </defs>
-                    <rect className="w-full h-full fill-none svg-glow-rect" rx="12" />
+                    <rect width="100%" height="100%" pathLength="100" className="fill-none svg-glow-rect" rx="11" />
                   </svg>
                 </Link>
               </div>
