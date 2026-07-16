@@ -41,7 +41,7 @@ p, a, span, button, label {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* The rotating conic gradient glow line - slow comet tail with bold white tip */
+/* The rotating conic gradient glow line - single compact laser segment with bold white tip */
 .glass-card::before {
   content: '';
   position: absolute;
@@ -49,7 +49,7 @@ p, a, span, button, label {
   left: 50%;
   width: 200%;
   height: 200%;
-  background: conic-gradient(from 0deg, transparent 0%, rgba(34, 211, 238, 0.1) 8%, rgba(34, 211, 238, 0.6) 50%, #22d3ee 90%, #ffffff 100%);
+  background: conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(34, 211, 238, 0.2) 70%, #22d3ee 95%, #ffffff 100%);
   transform: translate(-50%, -50%) rotate(0deg);
   z-index: -2;
   opacity: 0;
@@ -101,7 +101,7 @@ p, a, span, button, label {
   box-shadow: 0 4px 12px rgba(34, 211, 238, 0.05); /* subtle static shadow */
 }
 
-/* The rotating conic gradient glow line - slow comet tail with bold white tip */
+/* The rotating conic gradient glow line - single compact laser segment with bold white tip */
 .btn-cyber-glow::before {
   content: '';
   position: absolute;
@@ -109,7 +109,7 @@ p, a, span, button, label {
   left: 50%;
   width: 180%;
   height: 280%;
-  background: conic-gradient(from 0deg, transparent 0%, rgba(34, 211, 238, 0.1) 8%, rgba(34, 211, 238, 0.6) 50%, #22d3ee 90%, #ffffff 100%);
+  background: conic-gradient(from 0deg, transparent 0%, transparent 60%, rgba(34, 211, 238, 0.2) 70%, #22d3ee 95%, #ffffff 100%);
   transform: translate(-50%, -50%) rotate(0deg);
   z-index: -2;
   opacity: 0;
