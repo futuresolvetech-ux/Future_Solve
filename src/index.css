@@ -177,6 +177,29 @@ p, a, span, button, label {
   animation: blobFloatAlt 28s ease-in-out infinite;
 }
 
+/* Interactive Cursor Spotlight Glow */
+.cursor-spotlight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, rgba(99, 102, 241, 0.06) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1; /* Behind content (z-10) but in front of background grid */
+  mix-blend-mode: screen;
+  transform: translate3d(-1000px, -1000px, 0); /* Start offscreen */
+  transition: transform 0.2s cubic-bezier(0.1, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+@media (hover: none) {
+  .cursor-spotlight {
+    display: none;
+  }
+}
+
 /* Text Gradient Effect */
 .text-gradient {
   background: linear-gradient(135deg, #bec6e0 0%, #7bd0ff 100%);
