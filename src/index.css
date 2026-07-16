@@ -78,7 +78,7 @@ p, a, span, button, label {
 
 .glass-card:hover::before {
   opacity: 1;
-  animation: spinGlow 12s linear infinite; /* Slowed down to 12 seconds for an extremely premium crawl */
+  animation: spinGlow 20s linear infinite; /* Slowed down to 20 seconds for an extremely premium crawl */
 }
 
 .glass-card:hover::after {
@@ -121,7 +121,7 @@ p, a, span, button, label {
 .btn-cyber-glow::after {
   content: '';
   position: absolute;
-  inset: 2.5px; /* Thicker bold border gap of 2.5px */
+  inset: 2.5px; /* Creates a 2.5px glowing border width */
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(34, 211, 238, 0.15) 100%), #051424; 
   border-radius: calc(0.75rem - 2.5px);
   z-index: -1;
@@ -139,7 +139,7 @@ p, a, span, button, label {
 
 .btn-cyber-glow:hover::before {
   opacity: 1;
-  animation: spinGlow 6s linear infinite; /* Slowed down to 6 seconds for a smooth, premium crawl */
+  animation: spinGlow 12s linear infinite; /* Slowed down to 12 seconds for a smooth, premium crawl */
 }
 
 .btn-cyber-glow:hover::after {

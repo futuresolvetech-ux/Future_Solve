@@ -136,9 +136,9 @@ export default function Portfolio() {
           {/* Visual side */}
           <div className="w-full lg:w-2/5 relative z-10">
             <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden glass-card border border-white/5 relative">
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10 m-[2px] rounded-[14px]"></div>
               <img 
-                className="w-full h-full object-cover opacity-80" 
+                className="absolute top-[2px] left-[2px] right-[2px] bottom-[2px] rounded-[14px] w-[calc(100%-4px)] h-[calc(100%-4px)] object-cover opacity-80" 
                 alt="Workspace and tech metrics" 
                 src={projectImages[featuredStory.id]}
               />
@@ -224,12 +224,12 @@ export default function Portfolio() {
                   <img 
                     src={projectImages[p.id]} 
                     alt={p.title}
-                    className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-500 ease-out"
+                    className="absolute top-[2px] left-[2px] right-[2px] bottom-0 rounded-t-[14px] w-[calc(100%-4px)] h-[calc(100%-2px)] object-cover opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-500 ease-out"
                   />
                   {/* Grid Overlay */}
-                  <div className="absolute inset-0 bg-grid-pattern opacity-10 pointer-events-none"></div>
+                  <div className="absolute top-[2px] left-[2px] right-[2px] bottom-0 w-[calc(100%-4px)] h-[calc(100%-2px)] rounded-t-[14px] bg-grid-pattern opacity-10 pointer-events-none"></div>
                   {/* Dark Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10"></div>
+                  <div className="absolute top-[2px] left-[2px] right-[2px] bottom-0 w-[calc(100%-4px)] h-[calc(100%-2px)] rounded-t-[14px] bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent z-10"></div>
                   
                   {/* Glowing Metric Tag overlay */}
                   <div className="relative z-20 flex flex-col items-start">
