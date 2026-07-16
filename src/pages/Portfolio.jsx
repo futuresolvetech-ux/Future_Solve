@@ -289,10 +289,12 @@ export default function Portfolio() {
                       <img 
                         src={projectLogos[p.id]} 
                         alt={`${p.title} Logo`}
-                        className="h-6 object-contain mb-3 bg-white/95 px-2.5 py-1 rounded-lg border border-white/20 shadow-md"
+                        className="h-8 md:h-9 object-contain mb-3 bg-white/95 px-3 py-1.5 rounded-lg border border-white/20 shadow-md"
                       />
                     ) : (
-                      <span className="text-[10px] font-bold text-slate-400 tracking-wider font-mono uppercase mb-2">{p.title}</span>
+                      <span className="text-xs md:text-sm font-black text-white tracking-wider uppercase mb-3 bg-[#051424]/85 backdrop-blur-md border border-white/10 px-3 py-1.5 rounded-lg shadow-md inline-block">
+                        {p.title}
+                      </span>
                     )}
                     
                     <span className="bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 px-2.5 py-1 rounded-lg text-xs font-extrabold font-mono flex items-center gap-1.5 shadow-lg backdrop-blur-md">
